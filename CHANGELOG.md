@@ -7,7 +7,7 @@ project uses semantic versioning once a stable release ships.
 
 ## [Unreleased]
 
-## [0.1.0] - Unreleased
+## [0.1.0] - 2026-10-01
 
 First public release of Airtable Workspace Manager: a free, local-first desktop app for
 visualizing and managing Airtable workspace architecture.
