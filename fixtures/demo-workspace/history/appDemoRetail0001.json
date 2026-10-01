@@ -1,0 +1,9 @@
+{
+  "changes": [
+    {
+      "daysAgo": 20,
+      "summary": "Added on-hand counts to Store Products",
+      "edits": [{ "op": "addField", "fieldId": "fldDemoStPr000007" }]
+    }
+  ]
+}

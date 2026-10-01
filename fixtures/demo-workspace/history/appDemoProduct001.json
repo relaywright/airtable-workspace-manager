@@ -1,0 +1,84 @@
+{
+  "changes": [
+    {
+      "daysAgo": 52,
+      "summary": "Added a Price Changes table to track price updates",
+      "edits": [{ "op": "addTable", "tableId": "tblDemoPrcH000001" }]
+    },
+    {
+      "daysAgo": 38,
+      "summary": "Added Glass as a material type",
+      "edits": [
+        {
+          "op": "modifyField",
+          "fieldId": "fldDemoMatl000002",
+          "from": {
+            "options": {
+              "choices": [
+                { "id": "selDemoMatl0201", "name": "Wood", "color": "blueLight2" },
+                { "id": "selDemoMatl0202", "name": "Textile", "color": "cyanLight2" },
+                { "id": "selDemoMatl0203", "name": "Ceramic", "color": "tealLight2" },
+                { "id": "selDemoMatl0204", "name": "Metal", "color": "greenLight2" }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "daysAgo": 31,
+      "summary": "Products now link back to the prototype they came from",
+      "edits": [{ "op": "addField", "fieldId": "fldDemoProd000021" }]
+    },
+    {
+      "daysAgo": 24,
+      "summary": "Added a Barcode field to Products",
+      "edits": [{ "op": "addField", "fieldId": "fldDemoProd000015" }]
+    },
+    {
+      "daysAgo": 17,
+      "summary": "Renamed Price to Retail Price and added wholesale pricing",
+      "edits": [
+        { "op": "modifyField", "fieldId": "fldDemoProd000006", "from": { "name": "Price" } },
+        { "op": "addField", "fieldId": "fldDemoProd000007" }
+      ]
+    },
+    {
+      "daysAgo": 9,
+      "summary": "Removed the old price field nobody was updating",
+      "edits": [
+        {
+          "op": "removeField",
+          "tableId": "tblDemoProd000001",
+          "field": {
+            "id": "fldDemoProd000024",
+            "name": "Old Price (do not use)",
+            "type": "currency",
+            "options": { "precision": 2, "symbol": "$" }
+          }
+        }
+      ]
+    },
+    {
+      "daysAgo": 2,
+      "summary": "Added review ratings and a Gift Idea tag",
+      "edits": [
+        { "op": "addField", "fieldId": "fldDemoProd000022" },
+        {
+          "op": "modifyField",
+          "fieldId": "fldDemoProd000017",
+          "from": {
+            "options": {
+              "choices": [
+                { "id": "selDemoProd1701", "name": "Bestseller", "color": "blueLight2" },
+                { "id": "selDemoProd1702", "name": "New", "color": "cyanLight2" },
+                { "id": "selDemoProd1704", "name": "Eco", "color": "greenLight2" },
+                { "id": "selDemoProd1705", "name": "Limited", "color": "yellowLight2" }
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

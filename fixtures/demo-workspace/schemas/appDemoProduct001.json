@@ -1,0 +1,405 @@
+{
+  "tables": [
+    {
+      "id": "tblDemoProd000001",
+      "name": "Products",
+      "primaryFieldId": "fldDemoProd000001",
+      "fields": [
+        { "id": "fldDemoProd000001", "name": "Product Name", "type": "singleLineText" },
+        { "id": "fldDemoProd000002", "name": "SKU", "type": "singleLineText" },
+        {
+          "id": "fldDemoProd000003",
+          "name": "Status",
+          "type": "singleSelect",
+          "options": {
+            "choices": [
+              { "id": "selDemoProd0301", "name": "Active", "color": "blueLight2" },
+              { "id": "selDemoProd0302", "name": "Draft", "color": "cyanLight2" },
+              { "id": "selDemoProd0303", "name": "Seasonal", "color": "tealLight2" },
+              { "id": "selDemoProd0304", "name": "Discontinued", "color": "greenLight2" }
+            ]
+          }
+        },
+        {
+          "id": "fldDemoProd000004",
+          "name": "Collection",
+          "type": "multipleRecordLinks",
+          "options": {
+            "linkedTableId": "tblDemoColl000001",
+            "isReversed": false,
+            "prefersSingleRecordLink": false
+          }
+        },
+        {
+          "id": "fldDemoProd000005",
+          "name": "Category",
+          "type": "multipleRecordLinks",
+          "options": {
+            "linkedTableId": "tblDemoCatg000001",
+            "isReversed": false,
+            "prefersSingleRecordLink": false
+          }
+        },
+        {
+          "id": "fldDemoProd000006",
+          "name": "Retail Price",
+          "type": "currency",
+          "options": { "precision": 2, "symbol": "$" }
+        },
+        {
+          "id": "fldDemoProd000007",
+          "name": "Wholesale Price",
+          "type": "currency",
+          "options": { "precision": 2, "symbol": "$" }
+        },
+        {
+          "id": "fldDemoProd000008",
+          "name": "Unit Cost",
+          "type": "currency",
+          "options": { "precision": 2, "symbol": "$" }
+        },
+        {
+          "id": "fldDemoProd000009",
+          "name": "Margin",
+          "type": "formula",
+          "options": {
+            "formula": "({Retail Price} - {Unit Cost}) / {Retail Price}",
+            "result": { "type": "percent" }
+          }
+        },
+        {
+          "id": "fldDemoProd000010",
+          "name": "Materials",
+          "type": "multipleRecordLinks",
+          "options": {
+            "linkedTableId": "tblDemoMatl000001",
+            "isReversed": false,
+            "prefersSingleRecordLink": false
+          }
+        },
+        { "id": "fldDemoProd000011", "name": "Dimensions", "type": "singleLineText" },
+        { "id": "fldDemoProd000012", "name": "Weight (lb)", "type": "number", "options": { "precision": 1 } },
+        { "id": "fldDemoProd000013", "name": "Care Instructions", "type": "multilineText" },
+        {
+          "id": "fldDemoProd000014",
+          "name": "Product Photos",
+          "type": "multipleAttachments",
+          "options": { "isReversed": false }
+        },
+        { "id": "fldDemoProd000015", "name": "Barcode", "type": "barcode" },
+        {
+          "id": "fldDemoProd000016",
+          "name": "Launch Date",
+          "type": "date",
+          "options": { "dateFormat": { "name": "us", "format": "M/D/YYYY" } }
+        },
+        {
+          "id": "fldDemoProd000017",
+          "name": "Tags",
+          "type": "multipleSelects",
+          "options": {
+            "choices": [
+              { "id": "selDemoProd1701", "name": "Bestseller", "color": "blueLight2" },
+              { "id": "selDemoProd1702", "name": "New", "color": "cyanLight2" },
+              { "id": "selDemoProd1703", "name": "Gift Idea", "color": "tealLight2" },
+              { "id": "selDemoProd1704", "name": "Eco", "color": "greenLight2" },
+              { "id": "selDemoProd1705", "name": "Limited", "color": "yellowLight2" }
+            ]
+          }
+        },
+        { "id": "fldDemoProd000018", "name": "Product Owner", "type": "singleCollaborator", "options": {} },
+        {
+          "id": "fldDemoProd000019",
+          "name": "Variants",
+          "type": "multipleRecordLinks",
+          "options": {
+            "linkedTableId": "tblDemoVart000001",
+            "isReversed": false,
+            "prefersSingleRecordLink": false
+          }
+        },
+        {
+          "id": "fldDemoProd000020",
+          "name": "Variant Count",
+          "type": "count",
+          "options": { "isValid": true, "recordLinkFieldId": "fldDemoProd000019" }
+        },
+        {
+          "id": "fldDemoProd000021",
+          "name": "Source Prototype",
+          "type": "multipleRecordLinks",
+          "options": {
+            "linkedTableId": "tblDemoProt000001",
+            "isReversed": false,
+            "prefersSingleRecordLink": false
+          }
+        },
+        {
+          "id": "fldDemoProd000022",
+          "name": "Avg Review Rating",
+          "type": "rating",
+          "options": { "icon": "star", "max": 5, "color": "yellowBright" }
+        },
+        {
+          "id": "fldDemoProd000023",
+          "name": "Last Modified",
+          "type": "lastModifiedTime",
+          "options": {
+            "isValid": true,
+            "referencedFieldIds": [],
+            "result": {
+              "type": "dateTime",
+              "options": {
+                "dateFormat": { "name": "us", "format": "M/D/YYYY" },
+                "timeFormat": { "name": "12hour", "format": "h:mma" },
+                "timeZone": "America/Los_Angeles"
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "tblDemoColl000001",
+      "name": "Collections",
+      "primaryFieldId": "fldDemoColl000001",
+      "fields": [
+        { "id": "fldDemoColl000001", "name": "Collection Name", "type": "singleLineText" },
+        {
+          "id": "fldDemoColl000002",
+          "name": "Season",
+          "type": "singleSelect",
+          "options": {
+            "choices": [
+              { "id": "selDemoColl0201", "name": "Spring", "color": "blueLight2" },
+              { "id": "selDemoColl0202", "name": "Summer", "color": "cyanLight2" },
+              { "id": "selDemoColl0203", "name": "Fall", "color": "tealLight2" },
+              { "id": "selDemoColl0204", "name": "Holiday", "color": "greenLight2" }
+            ]
+          }
+        },
+        {
+          "id": "fldDemoColl000003",
+          "name": "Launch Date",
+          "type": "date",
+          "options": { "dateFormat": { "name": "us", "format": "M/D/YYYY" } }
+        },
+        {
+          "id": "fldDemoColl000004",
+          "name": "Products",
+          "type": "multipleRecordLinks",
+          "options": {
+            "linkedTableId": "tblDemoProd000001",
+            "isReversed": false,
+            "prefersSingleRecordLink": false
+          }
+        },
+        {
+          "id": "fldDemoColl000005",
+          "name": "Product Count",
+          "type": "count",
+          "options": { "isValid": true, "recordLinkFieldId": "fldDemoColl000004" }
+        },
+        {
+          "id": "fldDemoColl000006",
+          "name": "Hero Image",
+          "type": "multipleAttachments",
+          "options": { "isReversed": false }
+        },
+        { "id": "fldDemoColl000007", "name": "Description", "type": "multilineText" },
+        {
+          "id": "fldDemoColl000008",
+          "name": "Is Live",
+          "type": "checkbox",
+          "options": { "icon": "check", "color": "greenBright" }
+        }
+      ]
+    },
+    {
+      "id": "tblDemoCatg000001",
+      "name": "Categories",
+      "primaryFieldId": "fldDemoCatg000001",
+      "fields": [
+        { "id": "fldDemoCatg000001", "name": "Category Name", "type": "singleLineText" },
+        { "id": "fldDemoCatg000002", "name": "Description", "type": "singleLineText" },
+        {
+          "id": "fldDemoCatg000003",
+          "name": "Products",
+          "type": "multipleRecordLinks",
+          "options": {
+            "linkedTableId": "tblDemoProd000001",
+            "isReversed": false,
+            "prefersSingleRecordLink": false
+          }
+        },
+        {
+          "id": "fldDemoCatg000004",
+          "name": "Product Count",
+          "type": "rollup",
+          "options": {
+            "recordLinkFieldId": "fldDemoCatg000003",
+            "fieldIdInLinkedTable": "fldDemoProd000001",
+            "formula": "COUNTALL(values)"
+          }
+        },
+        { "id": "fldDemoCatg000005", "name": "Parent Category", "type": "singleLineText" }
+      ]
+    },
+    {
+      "id": "tblDemoVart000001",
+      "name": "Product Variants",
+      "primaryFieldId": "fldDemoVart000001",
+      "fields": [
+        { "id": "fldDemoVart000001", "name": "Variant Name", "type": "singleLineText" },
+        {
+          "id": "fldDemoVart000002",
+          "name": "Product",
+          "type": "multipleRecordLinks",
+          "options": {
+            "linkedTableId": "tblDemoProd000001",
+            "isReversed": false,
+            "prefersSingleRecordLink": false
+          }
+        },
+        {
+          "id": "fldDemoVart000003",
+          "name": "Product Name",
+          "type": "multipleLookupValues",
+          "options": {
+            "isValid": true,
+            "recordLinkFieldId": "fldDemoVart000002",
+            "fieldIdInLinkedTable": "fldDemoProd000001"
+          }
+        },
+        {
+          "id": "fldDemoVart000004",
+          "name": "Color",
+          "type": "singleSelect",
+          "options": {
+            "choices": [
+              { "id": "selDemoVart0401", "name": "Natural Oak", "color": "blueLight2" },
+              { "id": "selDemoVart0402", "name": "Walnut", "color": "cyanLight2" },
+              { "id": "selDemoVart0403", "name": "Charcoal", "color": "tealLight2" },
+              { "id": "selDemoVart0404", "name": "Sage", "color": "greenLight2" },
+              { "id": "selDemoVart0405", "name": "Oat", "color": "yellowLight2" },
+              { "id": "selDemoVart0406", "name": "Terracotta", "color": "orangeLight2" }
+            ]
+          }
+        },
+        {
+          "id": "fldDemoVart000005",
+          "name": "Size",
+          "type": "singleSelect",
+          "options": {
+            "choices": [
+              { "id": "selDemoVart0501", "name": "Small", "color": "blueLight2" },
+              { "id": "selDemoVart0502", "name": "Medium", "color": "cyanLight2" },
+              { "id": "selDemoVart0503", "name": "Large", "color": "tealLight2" },
+              { "id": "selDemoVart0504", "name": "One Size", "color": "greenLight2" }
+            ]
+          }
+        },
+        { "id": "fldDemoVart000006", "name": "Variant SKU", "type": "singleLineText" },
+        { "id": "fldDemoVart000007", "name": "Barcode", "type": "barcode" },
+        {
+          "id": "fldDemoVart000008",
+          "name": "Price Override",
+          "type": "currency",
+          "options": { "precision": 2, "symbol": "$" }
+        }
+      ]
+    },
+    {
+      "id": "tblDemoMatl000001",
+      "name": "Materials",
+      "primaryFieldId": "fldDemoMatl000001",
+      "fields": [
+        { "id": "fldDemoMatl000001", "name": "Material", "type": "singleLineText" },
+        {
+          "id": "fldDemoMatl000002",
+          "name": "Type",
+          "type": "singleSelect",
+          "options": {
+            "choices": [
+              { "id": "selDemoMatl0201", "name": "Wood", "color": "blueLight2" },
+              { "id": "selDemoMatl0202", "name": "Textile", "color": "cyanLight2" },
+              { "id": "selDemoMatl0203", "name": "Ceramic", "color": "tealLight2" },
+              { "id": "selDemoMatl0204", "name": "Metal", "color": "greenLight2" },
+              { "id": "selDemoMatl0205", "name": "Glass", "color": "yellowLight2" }
+            ]
+          }
+        },
+        {
+          "id": "fldDemoMatl000003",
+          "name": "Certified Sustainable",
+          "type": "checkbox",
+          "options": { "icon": "check", "color": "greenBright" }
+        },
+        { "id": "fldDemoMatl000004", "name": "Supplier Name", "type": "singleLineText" },
+        {
+          "id": "fldDemoMatl000005",
+          "name": "Products",
+          "type": "multipleRecordLinks",
+          "options": {
+            "linkedTableId": "tblDemoProd000001",
+            "isReversed": false,
+            "prefersSingleRecordLink": false
+          }
+        },
+        { "id": "fldDemoMatl000006", "name": "Notes", "type": "multilineText" }
+      ]
+    },
+    {
+      "id": "tblDemoPrcH000001",
+      "name": "Price Changes",
+      "primaryFieldId": "fldDemoPrcH000001",
+      "fields": [
+        { "id": "fldDemoPrcH000001", "name": "Change Summary", "type": "singleLineText" },
+        {
+          "id": "fldDemoPrcH000002",
+          "name": "Product",
+          "type": "multipleRecordLinks",
+          "options": {
+            "linkedTableId": "tblDemoProd000001",
+            "isReversed": false,
+            "prefersSingleRecordLink": false
+          }
+        },
+        {
+          "id": "fldDemoPrcH000003",
+          "name": "Old Price",
+          "type": "currency",
+          "options": { "precision": 2, "symbol": "$" }
+        },
+        {
+          "id": "fldDemoPrcH000004",
+          "name": "New Price",
+          "type": "currency",
+          "options": { "precision": 2, "symbol": "$" }
+        },
+        {
+          "id": "fldDemoPrcH000005",
+          "name": "Effective Date",
+          "type": "date",
+          "options": { "dateFormat": { "name": "us", "format": "M/D/YYYY" } }
+        },
+        { "id": "fldDemoPrcH000006", "name": "Approved By", "type": "singleCollaborator", "options": {} },
+        {
+          "id": "fldDemoPrcH000007",
+          "name": "Created",
+          "type": "createdTime",
+          "options": {
+            "result": {
+              "type": "dateTime",
+              "options": {
+                "dateFormat": { "name": "us", "format": "M/D/YYYY" },
+                "timeFormat": { "name": "12hour", "format": "h:mma" },
+                "timeZone": "America/Los_Angeles"
+              }
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

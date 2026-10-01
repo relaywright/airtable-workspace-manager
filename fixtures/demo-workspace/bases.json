@@ -1,0 +1,17 @@
+[
+  { "id": "appDemoProduct001", "name": "Product Catalog", "permissionLevel": "create" },
+  { "id": "appDemoOrders0001", "name": "Orders & Fulfillment", "permissionLevel": "create" },
+  { "id": "appDemoSupplier01", "name": "Suppliers & Purchasing", "permissionLevel": "create" },
+  { "id": "appDemoMarketing1", "name": "Marketing Calendar", "permissionLevel": "edit" },
+  { "id": "appDemoInventory1", "name": "Inventory & Warehouse", "permissionLevel": "edit" },
+  { "id": "appDemoSupport001", "name": "Customer Support", "permissionLevel": "edit" },
+  { "id": "appDemoWholesale1", "name": "Wholesale Accounts", "permissionLevel": "edit" },
+  { "id": "appDemoFinance001", "name": "Finance & Invoicing", "permissionLevel": "comment" },
+  { "id": "appDemoContent001", "name": "Content Studio", "permissionLevel": "edit" },
+  { "id": "appDemoRetail0001", "name": "Retail Stores", "permissionLevel": "edit" },
+  { "id": "appDemoProdDev001", "name": "Product Development", "permissionLevel": "edit" },
+  { "id": "appDemoReturns001", "name": "Returns & Warranty", "permissionLevel": "edit" },
+  { "id": "appDemoCreators01", "name": "Creator Partnerships", "permissionLevel": "read" },
+  { "id": "appDemoPeople0001", "name": "People & Hiring", "permissionLevel": "create" },
+  { "id": "appDemoHoliday24A", "name": "Archive: 2024 Holiday Campaign", "permissionLevel": "read" }
+]

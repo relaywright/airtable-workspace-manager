@@ -1,0 +1,52 @@
+{
+  "tables": [
+    {
+      "id": "tblDemoGift000001",
+      "name": "Holiday Gift Guide",
+      "primaryFieldId": "fldDemoGift000001",
+      "fields": [
+        { "id": "fldDemoGift000001", "name": "Product", "type": "singleLineText" },
+        {
+          "id": "fldDemoGift000002",
+          "name": "Price Point",
+          "type": "singleSelect",
+          "options": {
+            "choices": [
+              { "id": "selDemoGift0201", "name": "Under $50", "color": "blueLight2" },
+              { "id": "selDemoGift0202", "name": "$50 to $100", "color": "cyanLight2" },
+              { "id": "selDemoGift0203", "name": "Over $100", "color": "tealLight2" }
+            ]
+          }
+        },
+        { "id": "fldDemoGift000003", "name": "Page", "type": "number", "options": { "precision": 0 } },
+        { "id": "fldDemoGift000004", "name": "Notes", "type": "multilineText" }
+      ]
+    },
+    {
+      "id": "tblDemoTbl1000001",
+      "name": "Table 1",
+      "primaryFieldId": "fldDemoTbl1000001",
+      "fields": [
+        { "id": "fldDemoTbl1000001", "name": "Name", "type": "singleLineText" },
+        { "id": "fldDemoTbl1000002", "name": "Notes", "type": "multilineText" },
+        {
+          "id": "fldDemoTbl1000003",
+          "name": "Attachments",
+          "type": "multipleAttachments",
+          "options": { "isReversed": false }
+        },
+        {
+          "id": "fldDemoTbl1000004",
+          "name": "Status",
+          "type": "singleSelect",
+          "options": {
+            "choices": [
+              { "id": "selDemoTbl10401", "name": "Todo", "color": "blueLight2" },
+              { "id": "selDemoTbl10402", "name": "Done", "color": "cyanLight2" }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

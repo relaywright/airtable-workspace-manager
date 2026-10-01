@@ -1,0 +1,722 @@
+{
+  "tables": {
+    "tblDemoCatg000001": [
+      {
+        "id": "recDemoCatg000001",
+        "createdTime": "2025-04-01T09:00:00.000Z",
+        "fields": {
+          "fldDemoCatg000001": "Kitchen",
+          "fldDemoCatg000002": "Tools and tableware for everyday meals.",
+          "fldDemoCatg000003": [
+            "recDemoProd000001",
+            "recDemoProd000002",
+            "recDemoProd000004",
+            "recDemoProd000009",
+            "recDemoProd000011",
+            "recDemoProd000012"
+          ]
+        }
+      },
+      {
+        "id": "recDemoCatg000002",
+        "createdTime": "2025-04-01T09:00:00.000Z",
+        "fields": {
+          "fldDemoCatg000001": "Home Textiles",
+          "fldDemoCatg000002": "Natural fabrics for a comfortable home.",
+          "fldDemoCatg000003": [
+            "recDemoProd000003",
+            "recDemoProd000006"
+          ]
+        }
+      },
+      {
+        "id": "recDemoCatg000003",
+        "createdTime": "2025-04-01T09:00:00.000Z",
+        "fields": {
+          "fldDemoCatg000001": "Bath",
+          "fldDemoCatg000002": "Simple essentials for a restful routine.",
+          "fldDemoCatg000003": [
+            "recDemoProd000007"
+          ]
+        }
+      },
+      {
+        "id": "recDemoCatg000004",
+        "createdTime": "2025-04-01T09:00:00.000Z",
+        "fields": {
+          "fldDemoCatg000001": "Outdoor",
+          "fldDemoCatg000002": "Useful pieces for gardens and weekend trips.",
+          "fldDemoCatg000003": [
+            "recDemoProd000008"
+          ]
+        }
+      },
+      {
+        "id": "recDemoCatg000005",
+        "createdTime": "2025-04-01T09:00:00.000Z",
+        "fields": {
+          "fldDemoCatg000001": "Gifts",
+          "fldDemoCatg000002": "Thoughtful items for celebrations and everyday thanks.",
+          "fldDemoCatg000003": [
+            "recDemoProd000005",
+            "recDemoProd000010"
+          ]
+        }
+      }
+    ],
+    "tblDemoColl000001": [
+      {
+        "id": "recDemoColl000001",
+        "createdTime": "2025-04-01T10:00:00.000Z",
+        "fields": {
+          "fldDemoColl000001": "Everyday Essentials",
+          "fldDemoColl000002": "Spring",
+          "fldDemoColl000003": "2025-06-01",
+          "fldDemoColl000004": [
+            "recDemoProd000001",
+            "recDemoProd000002",
+            "recDemoProd000003",
+            "recDemoProd000004",
+            "recDemoProd000007",
+            "recDemoProd000009",
+            "recDemoProd000011",
+            "recDemoProd000012"
+          ],
+          "fldDemoColl000007": "Useful pieces for cooking, gathering and daily rituals.",
+          "fldDemoColl000008": true
+        }
+      },
+      {
+        "id": "recDemoColl000002",
+        "createdTime": "2025-04-01T10:00:00.000Z",
+        "fields": {
+          "fldDemoColl000001": "Cabin Weekend",
+          "fldDemoColl000002": "Fall",
+          "fldDemoColl000003": "2025-09-01",
+          "fldDemoColl000004": [
+            "recDemoProd000006",
+            "recDemoProd000008"
+          ],
+          "fldDemoColl000007": "Soft layers and outdoor favorites for a quiet weekend.",
+          "fldDemoColl000008": true
+        }
+      },
+      {
+        "id": "recDemoColl000003",
+        "createdTime": "2025-04-01T10:00:00.000Z",
+        "fields": {
+          "fldDemoColl000001": "Gift Guide",
+          "fldDemoColl000002": "Holiday",
+          "fldDemoColl000003": "2025-10-01",
+          "fldDemoColl000004": [
+            "recDemoProd000005",
+            "recDemoProd000010"
+          ],
+          "fldDemoColl000007": "Small comforts to share with someone special.",
+          "fldDemoColl000008": true
+        }
+      },
+      {
+        "id": "recDemoColl000004",
+        "createdTime": "2026-06-15T10:00:00.000Z",
+        "fields": {
+          "fldDemoColl000001": "Winter Warmth",
+          "fldDemoColl000002": "Holiday",
+          "fldDemoColl000003": "2026-11-01",
+          "fldDemoColl000004": [
+            "recDemoProd000005",
+            "recDemoProd000006"
+          ],
+          "fldDemoColl000006": [
+            {
+              "id": "attDemoHero000001",
+              "filename": "winter-warmth-hero.svg",
+              "type": "image/svg+xml",
+              "size": 637
+            }
+          ],
+          "fldDemoColl000007": "Candlelight and wool for the colder months."
+        }
+      }
+    ],
+    "tblDemoProd000001": [
+      {
+        "id": "recDemoProd000001",
+        "createdTime": "2025-05-01T10:00:00.000Z",
+        "fields": {
+          "fldDemoProd000001": "Walnut Serving Board",
+          "fldDemoProd000002": "CP-0001",
+          "fldDemoProd000003": "Active",
+          "fldDemoProd000004": [
+            "recDemoColl000001"
+          ],
+          "fldDemoProd000005": [
+            "recDemoCatg000001"
+          ],
+          "fldDemoProd000006": 48,
+          "fldDemoProd000007": 32,
+          "fldDemoProd000008": 21,
+          "fldDemoProd000009": 0.5625,
+          "fldDemoProd000011": "14 x 8 x 0.75 in",
+          "fldDemoProd000012": 1.8,
+          "fldDemoProd000013": "Hand wash and dry promptly. Oil with food-safe mineral oil.",
+          "fldDemoProd000014": [
+            {
+              "id": "attDemoWaln000001",
+              "filename": "walnut-board.svg",
+              "type": "image/svg+xml",
+              "size": 469
+            }
+          ],
+          "fldDemoProd000016": "2025-06-01",
+          "fldDemoProd000017": [
+            "Bestseller"
+          ]
+        }
+      },
+      {
+        "id": "recDemoProd000002",
+        "createdTime": "2025-05-01T10:00:00.000Z",
+        "fields": {
+          "fldDemoProd000001": "Cedar Spice Rack",
+          "fldDemoProd000002": "CP-0002",
+          "fldDemoProd000003": "Active",
+          "fldDemoProd000004": [
+            "recDemoColl000001"
+          ],
+          "fldDemoProd000005": [
+            "recDemoCatg000001"
+          ],
+          "fldDemoProd000006": 56,
+          "fldDemoProd000007": 36,
+          "fldDemoProd000008": 28,
+          "fldDemoProd000009": 0.5,
+          "fldDemoProd000011": "12 x 4 x 10 in",
+          "fldDemoProd000012": 2.4,
+          "fldDemoProd000013": "Wipe with a damp cloth. Keep away from standing water.",
+          "fldDemoProd000016": "2025-07-15",
+          "fldDemoProd000017": [
+            "Eco"
+          ]
+        }
+      },
+      {
+        "id": "recDemoProd000003",
+        "createdTime": "2025-05-01T10:00:00.000Z",
+        "fields": {
+          "fldDemoProd000001": "Linen Tea Towel Set",
+          "fldDemoProd000002": "CP-0003",
+          "fldDemoProd000003": "Active",
+          "fldDemoProd000004": [
+            "recDemoColl000001"
+          ],
+          "fldDemoProd000005": [
+            "recDemoCatg000002"
+          ],
+          "fldDemoProd000006": 24,
+          "fldDemoProd000007": 16,
+          "fldDemoProd000008": 9,
+          "fldDemoProd000009": 0.625,
+          "fldDemoProd000011": "28 x 18 in each",
+          "fldDemoProd000012": 0.5,
+          "fldDemoProd000013": "Machine wash cold. Line dry or tumble dry low.",
+          "fldDemoProd000016": "2025-08-01",
+          "fldDemoProd000017": [
+            "Eco",
+            "Bestseller"
+          ]
+        }
+      },
+      {
+        "id": "recDemoProd000004",
+        "createdTime": "2025-05-01T10:00:00.000Z",
+        "fields": {
+          "fldDemoProd000001": "Stoneware Mug",
+          "fldDemoProd000002": "CP-0004",
+          "fldDemoProd000003": "Active",
+          "fldDemoProd000004": [
+            "recDemoColl000001"
+          ],
+          "fldDemoProd000005": [
+            "recDemoCatg000001"
+          ],
+          "fldDemoProd000006": 28,
+          "fldDemoProd000007": 18,
+          "fldDemoProd000008": 10.5,
+          "fldDemoProd000009": 0.625,
+          "fldDemoProd000011": "4 x 3.5 x 4 in",
+          "fldDemoProd000012": 0.9,
+          "fldDemoProd000013": "Dishwasher safe. Avoid sudden temperature changes.",
+          "fldDemoProd000014": [
+            {
+              "id": "attDemoMugs000001",
+              "filename": "stoneware-mug.svg",
+              "type": "image/svg+xml",
+              "size": 590
+            }
+          ],
+          "fldDemoProd000016": "2025-09-01",
+          "fldDemoProd000017": [
+            "Bestseller",
+            "Gift Idea"
+          ]
+        }
+      },
+      {
+        "id": "recDemoProd000005",
+        "createdTime": "2025-05-01T10:00:00.000Z",
+        "fields": {
+          "fldDemoProd000001": "Pine Candle Trio",
+          "fldDemoProd000002": "CP-0005",
+          "fldDemoProd000003": "Seasonal",
+          "fldDemoProd000004": [
+            "recDemoColl000003",
+            "recDemoColl000004"
+          ],
+          "fldDemoProd000005": [
+            "recDemoCatg000005"
+          ],
+          "fldDemoProd000006": 36,
+          "fldDemoProd000007": 24,
+          "fldDemoProd000008": 13.5,
+          "fldDemoProd000009": 0.625,
+          "fldDemoProd000011": "2.5 x 2.5 x 3 in each",
+          "fldDemoProd000012": 1.2,
+          "fldDemoProd000013": "Trim wicks before use. Place on a heat-resistant surface.",
+          "fldDemoProd000014": [
+            {
+              "id": "attDemoCand000001",
+              "filename": "candle-trio.svg",
+              "type": "image/svg+xml",
+              "size": 644
+            }
+          ],
+          "fldDemoProd000016": "2025-10-01",
+          "fldDemoProd000017": [
+            "Gift Idea",
+            "Limited"
+          ]
+        }
+      },
+      {
+        "id": "recDemoProd000006",
+        "createdTime": "2025-05-01T10:00:00.000Z",
+        "fields": {
+          "fldDemoProd000001": "Wool Throw Blanket",
+          "fldDemoProd000002": "CP-0006",
+          "fldDemoProd000003": "Seasonal",
+          "fldDemoProd000004": [
+            "recDemoColl000002",
+            "recDemoColl000004"
+          ],
+          "fldDemoProd000005": [
+            "recDemoCatg000002"
+          ],
+          "fldDemoProd000006": 96,
+          "fldDemoProd000007": 64,
+          "fldDemoProd000008": 36,
+          "fldDemoProd000009": 0.625,
+          "fldDemoProd000011": "60 x 50 in",
+          "fldDemoProd000012": 2.1,
+          "fldDemoProd000013": "Hand wash cold with wool detergent. Dry flat.",
+          "fldDemoProd000014": [
+            {
+              "id": "attDemoWool000001",
+              "filename": "wool-throw.svg",
+              "type": "image/svg+xml",
+              "size": 509
+            }
+          ],
+          "fldDemoProd000016": "2025-10-15",
+          "fldDemoProd000017": [
+            "Gift Idea"
+          ]
+        }
+      },
+      {
+        "id": "recDemoProd000007",
+        "createdTime": "2025-05-01T10:00:00.000Z",
+        "fields": {
+          "fldDemoProd000001": "Bamboo Bath Mat",
+          "fldDemoProd000002": "CP-0007",
+          "fldDemoProd000003": "Active",
+          "fldDemoProd000004": [
+            "recDemoColl000001"
+          ],
+          "fldDemoProd000005": [
+            "recDemoCatg000003"
+          ],
+          "fldDemoProd000006": 40,
+          "fldDemoProd000007": 26,
+          "fldDemoProd000008": 15,
+          "fldDemoProd000009": 0.625,
+          "fldDemoProd000011": "24 x 16 x 1 in",
+          "fldDemoProd000012": 2.8,
+          "fldDemoProd000013": "Wipe clean and air dry between uses.",
+          "fldDemoProd000016": "2026-01-15",
+          "fldDemoProd000017": [
+            "Eco"
+          ]
+        }
+      },
+      {
+        "id": "recDemoProd000008",
+        "createdTime": "2025-05-01T10:00:00.000Z",
+        "fields": {
+          "fldDemoProd000001": "Copper Watering Can",
+          "fldDemoProd000002": "CP-0008",
+          "fldDemoProd000003": "Active",
+          "fldDemoProd000004": [
+            "recDemoColl000002"
+          ],
+          "fldDemoProd000005": [
+            "recDemoCatg000004"
+          ],
+          "fldDemoProd000006": 64,
+          "fldDemoProd000007": 42,
+          "fldDemoProd000008": 24,
+          "fldDemoProd000009": 0.625,
+          "fldDemoProd000011": "14 x 6 x 9 in",
+          "fldDemoProd000012": 1.6,
+          "fldDemoProd000013": "Empty after use. Polish gently with a soft cloth.",
+          "fldDemoProd000016": "2026-02-01",
+          "fldDemoProd000017": [
+            "Gift Idea"
+          ]
+        }
+      },
+      {
+        "id": "recDemoProd000009",
+        "createdTime": "2025-05-01T10:00:00.000Z",
+        "fields": {
+          "fldDemoProd000001": "Maple Cutting Board",
+          "fldDemoProd000002": "CP-0009",
+          "fldDemoProd000003": "Active",
+          "fldDemoProd000004": [
+            "recDemoColl000001"
+          ],
+          "fldDemoProd000005": [
+            "recDemoCatg000001"
+          ],
+          "fldDemoProd000006": 44,
+          "fldDemoProd000007": 30,
+          "fldDemoProd000008": 16.5,
+          "fldDemoProd000009": 0.625,
+          "fldDemoProd000011": "12 x 9 x 0.75 in",
+          "fldDemoProd000012": 2,
+          "fldDemoProd000013": "Hand wash only. Oil monthly with food-safe mineral oil.",
+          "fldDemoProd000016": "2026-03-01",
+          "fldDemoProd000017": [
+            "Eco"
+          ]
+        }
+      },
+      {
+        "id": "recDemoProd000010",
+        "createdTime": "2026-06-01T10:00:00.000Z",
+        "fields": {
+          "fldDemoProd000001": "Canvas Tote",
+          "fldDemoProd000002": "CP-0010",
+          "fldDemoProd000003": "Active",
+          "fldDemoProd000004": [
+            "recDemoColl000003"
+          ],
+          "fldDemoProd000005": [
+            "recDemoCatg000005"
+          ],
+          "fldDemoProd000006": 20,
+          "fldDemoProd000007": 13,
+          "fldDemoProd000008": 7.5,
+          "fldDemoProd000009": 0.625,
+          "fldDemoProd000011": "16 x 14 x 4 in",
+          "fldDemoProd000012": 0.4,
+          "fldDemoProd000013": "Spot clean with mild soap. Air dry.",
+          "fldDemoProd000014": [
+            {
+              "id": "attDemoTote000001",
+              "filename": "coming-soon.svg",
+              "type": "image/svg+xml",
+              "size": 496
+            }
+          ],
+          "fldDemoProd000016": "2026-06-01",
+          "fldDemoProd000017": [
+            "New"
+          ]
+        }
+      },
+      {
+        "id": "recDemoProd000011",
+        "createdTime": "2026-05-15T10:00:00.000Z",
+        "fields": {
+          "fldDemoProd000001": "Beeswax Wrap Pack",
+          "fldDemoProd000002": "CP-0011",
+          "fldDemoProd000003": "Active",
+          "fldDemoProd000004": [
+            "recDemoColl000001"
+          ],
+          "fldDemoProd000005": [
+            "recDemoCatg000001"
+          ],
+          "fldDemoProd000006": 16,
+          "fldDemoProd000007": 10,
+          "fldDemoProd000008": 6,
+          "fldDemoProd000009": 0.625,
+          "fldDemoProd000011": "8, 10 and 12 in squares",
+          "fldDemoProd000012": 0.2,
+          "fldDemoProd000013": "Wash with cool water and mild soap. Keep away from heat.",
+          "fldDemoProd000016": "2026-08-01",
+          "fldDemoProd000017": [
+            "Eco",
+            "New"
+          ]
+        }
+      },
+      {
+        "id": "recDemoProd000012",
+        "createdTime": "2026-06-15T10:00:00.000Z",
+        "fields": {
+          "fldDemoProd000001": "Linen Apron",
+          "fldDemoProd000002": "CP-0012",
+          "fldDemoProd000003": "Draft",
+          "fldDemoProd000004": [
+            "recDemoColl000001"
+          ],
+          "fldDemoProd000005": [
+            "recDemoCatg000001"
+          ],
+          "fldDemoProd000006": 48,
+          "fldDemoProd000007": 32,
+          "fldDemoProd000008": 18,
+          "fldDemoProd000009": 0.625,
+          "fldDemoProd000011": "32 x 28 in",
+          "fldDemoProd000012": 0.6,
+          "fldDemoProd000013": "Machine wash cold. Reshape and line dry.",
+          "fldDemoProd000014": [
+            {
+              "id": "attDemoAprn000001",
+              "filename": "coming-soon.svg",
+              "type": "image/svg+xml",
+              "size": 496
+            }
+          ],
+          "fldDemoProd000016": "2026-10-01",
+          "fldDemoProd000017": [
+            "New"
+          ]
+        }
+      }
+    ]
+  },
+  "history": [
+    {
+      "daysAgo": 26,
+      "summary": "Canvas Tote created, with Collection and Category links.",
+      "edits": [
+        {
+          "op": "create",
+          "tableId": "tblDemoProd000001",
+          "recordId": "recDemoProd000010"
+        },
+        {
+          "op": "update",
+          "tableId": "tblDemoColl000001",
+          "recordId": "recDemoColl000003",
+          "from": {
+            "fldDemoColl000004": [
+              "recDemoProd000005"
+            ]
+          }
+        },
+        {
+          "op": "update",
+          "tableId": "tblDemoCatg000001",
+          "recordId": "recDemoCatg000005",
+          "from": {
+            "fldDemoCatg000003": [
+              "recDemoProd000005"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "daysAgo": 19,
+      "summary": "Walnut Serving Board Retail Price increased from 42 to 48 and Status changed from Draft to Active.",
+      "edits": [
+        {
+          "op": "update",
+          "tableId": "tblDemoProd000001",
+          "recordId": "recDemoProd000001",
+          "from": {
+            "fldDemoProd000003": "Draft",
+            "fldDemoProd000006": 42,
+            "fldDemoProd000009": 0.5
+          }
+        }
+      ]
+    },
+    {
+      "daysAgo": 12,
+      "summary": "Enamel Camp Mug deleted, with Collection and Category links removed.",
+      "edits": [
+        {
+          "op": "update",
+          "tableId": "tblDemoColl000001",
+          "recordId": "recDemoColl000002",
+          "from": {
+            "fldDemoColl000004": [
+              "recDemoProd000006",
+              "recDemoProd000008",
+              "recDemoProd000013"
+            ]
+          }
+        },
+        {
+          "op": "update",
+          "tableId": "tblDemoCatg000001",
+          "recordId": "recDemoCatg000004",
+          "from": {
+            "fldDemoCatg000003": [
+              "recDemoProd000008",
+              "recDemoProd000013"
+            ]
+          }
+        },
+        {
+          "op": "delete",
+          "tableId": "tblDemoProd000001",
+          "record": {
+            "id": "recDemoProd000013",
+            "createdTime": "2025-05-01T10:00:00.000Z",
+            "fields": {
+              "fldDemoProd000001": "Enamel Camp Mug",
+              "fldDemoProd000002": "CP-0013",
+              "fldDemoProd000003": "Discontinued",
+              "fldDemoProd000004": [
+                "recDemoColl000002"
+              ],
+              "fldDemoProd000005": [
+                "recDemoCatg000004"
+              ],
+              "fldDemoProd000006": 24,
+              "fldDemoProd000007": 16,
+              "fldDemoProd000008": 9,
+              "fldDemoProd000009": 0.625,
+              "fldDemoProd000011": "4 x 3.5 x 3.5 in",
+              "fldDemoProd000012": 0.4,
+              "fldDemoProd000013": "Hand wash gently. Dry before storing.",
+              "fldDemoProd000016": "2025-07-01",
+              "fldDemoProd000017": [
+                "Gift Idea"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "daysAgo": 5,
+      "summary": "Tags refreshed on three products and the Beeswax Wrap Pack Launch Date moved.",
+      "edits": [
+        {
+          "op": "update",
+          "tableId": "tblDemoProd000001",
+          "recordId": "recDemoProd000003",
+          "from": {
+            "fldDemoProd000017": [
+              "Eco"
+            ]
+          }
+        },
+        {
+          "op": "update",
+          "tableId": "tblDemoProd000001",
+          "recordId": "recDemoProd000004",
+          "from": {
+            "fldDemoProd000017": [
+              "Bestseller"
+            ]
+          }
+        },
+        {
+          "op": "update",
+          "tableId": "tblDemoProd000001",
+          "recordId": "recDemoProd000011",
+          "from": {
+            "fldDemoProd000016": "2026-07-15",
+            "fldDemoProd000017": [
+              "Eco"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "daysAgo": 1,
+      "summary": "Winter Warmth collection created with Wool Throw Blanket and Pine Candle Trio, and Linen Apron created.",
+      "edits": [
+        {
+          "op": "create",
+          "tableId": "tblDemoColl000001",
+          "recordId": "recDemoColl000004"
+        },
+        {
+          "op": "update",
+          "tableId": "tblDemoProd000001",
+          "recordId": "recDemoProd000006",
+          "from": {
+            "fldDemoProd000004": [
+              "recDemoColl000002"
+            ]
+          }
+        },
+        {
+          "op": "update",
+          "tableId": "tblDemoProd000001",
+          "recordId": "recDemoProd000005",
+          "from": {
+            "fldDemoProd000004": [
+              "recDemoColl000003"
+            ]
+          }
+        },
+        {
+          "op": "create",
+          "tableId": "tblDemoProd000001",
+          "recordId": "recDemoProd000012"
+        },
+        {
+          "op": "update",
+          "tableId": "tblDemoColl000001",
+          "recordId": "recDemoColl000001",
+          "from": {
+            "fldDemoColl000004": [
+              "recDemoProd000001",
+              "recDemoProd000002",
+              "recDemoProd000003",
+              "recDemoProd000004",
+              "recDemoProd000007",
+              "recDemoProd000009",
+              "recDemoProd000011"
+            ]
+          }
+        },
+        {
+          "op": "update",
+          "tableId": "tblDemoCatg000001",
+          "recordId": "recDemoCatg000001",
+          "from": {
+            "fldDemoCatg000003": [
+              "recDemoProd000001",
+              "recDemoProd000002",
+              "recDemoProd000004",
+              "recDemoProd000009",
+              "recDemoProd000011"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

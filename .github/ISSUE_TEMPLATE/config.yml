@@ -1,0 +1,7 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Report a security vulnerability
+    url: https://github.com/security/advisories
+    about: >-
+      Please do not open a public issue for security reports. Use this repository's
+      Security tab and click "Report a vulnerability" for private reporting instead.

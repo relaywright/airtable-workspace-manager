@@ -1,0 +1,64 @@
+{
+  "changes": [
+    {
+      "daysAgo": 45,
+      "summary": "Added a Rush checkbox for expedited orders",
+      "edits": [{ "op": "addField", "fieldId": "fldDemoOrdr000015" }]
+    },
+    {
+      "daysAgo": 30,
+      "summary": "Order Date now records the time of purchase",
+      "edits": [
+        {
+          "op": "modifyField",
+          "fieldId": "fldDemoOrdr000004",
+          "from": { "type": "date", "options": { "dateFormat": { "name": "us", "format": "M/D/YYYY" } } }
+        }
+      ]
+    },
+    {
+      "daysAgo": 12,
+      "summary": "Split carriers into their own table",
+      "edits": [
+        { "op": "addTable", "tableId": "tblDemoCarr000001" },
+        { "op": "addField", "fieldId": "fldDemoShip000003" },
+        {
+          "op": "removeField",
+          "tableId": "tblDemoShip000001",
+          "field": {
+            "id": "fldDemoShip000009",
+            "name": "Carrier Name",
+            "type": "singleSelect",
+            "options": {
+              "choices": [
+                { "id": "selDemoShip0901", "name": "Ground", "color": "blueLight2" },
+                { "id": "selDemoShip0902", "name": "Express", "color": "cyanLight2" },
+                { "id": "selDemoShip0903", "name": "Freight", "color": "tealLight2" }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "daysAgo": 4,
+      "summary": "Added a Packed order status",
+      "edits": [
+        {
+          "op": "modifyField",
+          "fieldId": "fldDemoOrdr000006",
+          "from": {
+            "options": {
+              "choices": [
+                { "id": "selDemoOrdr0601", "name": "Pending", "color": "blueLight2" },
+                { "id": "selDemoOrdr0603", "name": "Shipped", "color": "tealLight2" },
+                { "id": "selDemoOrdr0604", "name": "Delivered", "color": "greenLight2" },
+                { "id": "selDemoOrdr0605", "name": "Cancelled", "color": "yellowLight2" }
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

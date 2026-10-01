@@ -1,0 +1,287 @@
+{
+  "tables": [
+    {
+      "id": "tblDemoCncp000001",
+      "name": "Concepts",
+      "primaryFieldId": "fldDemoCncp000001",
+      "fields": [
+        { "id": "fldDemoCncp000001", "name": "Concept Name", "type": "singleLineText" },
+        { "id": "fldDemoCncp000002", "name": "Pitch", "type": "multilineText" },
+        {
+          "id": "fldDemoCncp000003",
+          "name": "Category",
+          "type": "singleSelect",
+          "options": {
+            "choices": [
+              { "id": "selDemoCncp0301", "name": "Furniture", "color": "blueLight2" },
+              { "id": "selDemoCncp0302", "name": "Decor", "color": "cyanLight2" },
+              { "id": "selDemoCncp0303", "name": "Kitchenware", "color": "tealLight2" },
+              { "id": "selDemoCncp0304", "name": "Textiles", "color": "greenLight2" }
+            ]
+          }
+        },
+        {
+          "id": "fldDemoCncp000004",
+          "name": "Stage",
+          "type": "singleSelect",
+          "options": {
+            "choices": [
+              { "id": "selDemoCncp0401", "name": "Idea", "color": "blueLight2" },
+              { "id": "selDemoCncp0402", "name": "Sketch", "color": "cyanLight2" },
+              { "id": "selDemoCncp0403", "name": "Prototype", "color": "tealLight2" },
+              { "id": "selDemoCncp0404", "name": "Approved", "color": "greenLight2" },
+              { "id": "selDemoCncp0405", "name": "Launched", "color": "yellowLight2" },
+              { "id": "selDemoCncp0406", "name": "Shelved", "color": "orangeLight2" }
+            ]
+          }
+        },
+        {
+          "id": "fldDemoCncp000005",
+          "name": "Target Retail Price",
+          "type": "currency",
+          "options": { "precision": 2, "symbol": "$" }
+        },
+        {
+          "id": "fldDemoCncp000006",
+          "name": "Target Cost",
+          "type": "currency",
+          "options": { "precision": 2, "symbol": "$" }
+        },
+        {
+          "id": "fldDemoCncp000007",
+          "name": "Target Margin",
+          "type": "formula",
+          "options": {
+            "formula": "({Target Retail Price} - {Target Cost}) / {Target Retail Price}",
+            "result": { "type": "percent" }
+          }
+        },
+        { "id": "fldDemoCncp000008", "name": "Designer", "type": "singleCollaborator", "options": {} },
+        {
+          "id": "fldDemoCncp000009",
+          "name": "Prototypes",
+          "type": "multipleRecordLinks",
+          "options": {
+            "linkedTableId": "tblDemoProt000001",
+            "isReversed": false,
+            "prefersSingleRecordLink": false
+          }
+        },
+        {
+          "id": "fldDemoCncp000010",
+          "name": "Priority",
+          "type": "rating",
+          "options": { "icon": "star", "max": 5, "color": "yellowBright" }
+        },
+        {
+          "id": "fldDemoCncp000011",
+          "name": "Moodboard",
+          "type": "multipleAttachments",
+          "options": { "isReversed": false }
+        }
+      ]
+    },
+    {
+      "id": "tblDemoProt000001",
+      "name": "Prototypes",
+      "primaryFieldId": "fldDemoProt000001",
+      "fields": [
+        { "id": "fldDemoProt000001", "name": "Prototype", "type": "singleLineText" },
+        {
+          "id": "fldDemoProt000002",
+          "name": "Concept",
+          "type": "multipleRecordLinks",
+          "options": {
+            "linkedTableId": "tblDemoCncp000001",
+            "isReversed": false,
+            "prefersSingleRecordLink": false
+          }
+        },
+        {
+          "id": "fldDemoProt000003",
+          "name": "Supplier",
+          "type": "multipleRecordLinks",
+          "options": {
+            "linkedTableId": "tblDemoPdSp000001",
+            "isReversed": false,
+            "prefersSingleRecordLink": false
+          }
+        },
+        { "id": "fldDemoProt000004", "name": "Round", "type": "number", "options": { "precision": 0 } },
+        {
+          "id": "fldDemoProt000005",
+          "name": "Received",
+          "type": "date",
+          "options": { "dateFormat": { "name": "us", "format": "M/D/YYYY" } }
+        },
+        { "id": "fldDemoProt000006", "name": "Feedback", "type": "multilineText" },
+        {
+          "id": "fldDemoProt000007",
+          "name": "Approved",
+          "type": "checkbox",
+          "options": { "icon": "check", "color": "greenBright" }
+        },
+        {
+          "id": "fldDemoProt000008",
+          "name": "Photos",
+          "type": "multipleAttachments",
+          "options": { "isReversed": false }
+        }
+      ]
+    },
+    {
+      "id": "tblDemoPdSp000001",
+      "name": "Suppliers",
+      "primaryFieldId": "fldDemoPdSp000001",
+      "syncSource": { "sourceApplicationId": "appDemoSupplier01", "sourceTableId": "tblDemoSupp000001" },
+      "fields": [
+        { "id": "fldDemoPdSp000001", "name": "Supplier Name", "type": "singleLineText" },
+        { "id": "fldDemoPdSp000002", "name": "Contact Email", "type": "email" },
+        { "id": "fldDemoPdSp000003", "name": "Phone", "type": "phoneNumber" },
+        {
+          "id": "fldDemoPdSp000004",
+          "name": "Country",
+          "type": "singleSelect",
+          "options": {
+            "choices": [
+              { "id": "selDemoPdSp0401", "name": "USA", "color": "blueLight2" },
+              { "id": "selDemoPdSp0402", "name": "Portugal", "color": "cyanLight2" },
+              { "id": "selDemoPdSp0403", "name": "India", "color": "tealLight2" },
+              { "id": "selDemoPdSp0404", "name": "Vietnam", "color": "greenLight2" },
+              { "id": "selDemoPdSp0405", "name": "Mexico", "color": "yellowLight2" }
+            ]
+          }
+        },
+        {
+          "id": "fldDemoPdSp000005",
+          "name": "Category",
+          "type": "singleSelect",
+          "options": {
+            "choices": [
+              { "id": "selDemoPdSp0501", "name": "Furniture Maker", "color": "blueLight2" },
+              { "id": "selDemoPdSp0502", "name": "Textile Mill", "color": "cyanLight2" },
+              { "id": "selDemoPdSp0503", "name": "Ceramics Studio", "color": "tealLight2" },
+              { "id": "selDemoPdSp0504", "name": "Packaging", "color": "greenLight2" }
+            ]
+          }
+        },
+        {
+          "id": "fldDemoPdSp000006",
+          "name": "Lead Time (days)",
+          "type": "number",
+          "options": { "precision": 0 }
+        },
+        {
+          "id": "fldDemoPdSp000007",
+          "name": "Payment Terms",
+          "type": "singleSelect",
+          "options": {
+            "choices": [
+              { "id": "selDemoPdSp0701", "name": "Net 30", "color": "blueLight2" },
+              { "id": "selDemoPdSp0702", "name": "Net 45", "color": "cyanLight2" },
+              { "id": "selDemoPdSp0703", "name": "Net 60", "color": "tealLight2" }
+            ]
+          }
+        },
+        {
+          "id": "fldDemoPdSp000008",
+          "name": "Active",
+          "type": "checkbox",
+          "options": { "icon": "check", "color": "greenBright" }
+        },
+        {
+          "id": "fldDemoPdSp000009",
+          "name": "Prototypes",
+          "type": "multipleRecordLinks",
+          "options": {
+            "linkedTableId": "tblDemoProt000001",
+            "isReversed": false,
+            "prefersSingleRecordLink": false
+          }
+        }
+      ]
+    },
+    {
+      "id": "tblDemoSmpl000001",
+      "name": "Samples",
+      "primaryFieldId": "fldDemoSmpl000001",
+      "fields": [
+        { "id": "fldDemoSmpl000001", "name": "Sample ID", "type": "singleLineText" },
+        {
+          "id": "fldDemoSmpl000002",
+          "name": "Prototype",
+          "type": "multipleRecordLinks",
+          "options": {
+            "linkedTableId": "tblDemoProt000001",
+            "isReversed": false,
+            "prefersSingleRecordLink": false
+          }
+        },
+        {
+          "id": "fldDemoSmpl000003",
+          "name": "Requested",
+          "type": "date",
+          "options": { "dateFormat": { "name": "us", "format": "M/D/YYYY" } }
+        },
+        {
+          "id": "fldDemoSmpl000004",
+          "name": "Arrived",
+          "type": "date",
+          "options": { "dateFormat": { "name": "us", "format": "M/D/YYYY" } }
+        },
+        {
+          "id": "fldDemoSmpl000005",
+          "name": "Cost",
+          "type": "currency",
+          "options": { "precision": 2, "symbol": "$" }
+        },
+        { "id": "fldDemoSmpl000006", "name": "Tracking Number", "type": "singleLineText" },
+        {
+          "id": "fldDemoSmpl000007",
+          "name": "Status",
+          "type": "singleSelect",
+          "options": {
+            "choices": [
+              { "id": "selDemoSmpl0701", "name": "Requested", "color": "blueLight2" },
+              { "id": "selDemoSmpl0702", "name": "In Transit", "color": "cyanLight2" },
+              { "id": "selDemoSmpl0703", "name": "Arrived", "color": "tealLight2" },
+              { "id": "selDemoSmpl0704", "name": "Reviewed", "color": "greenLight2" }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "tblDemoLnch000001",
+      "name": "Launch Checklist",
+      "primaryFieldId": "fldDemoLnch000001",
+      "fields": [
+        { "id": "fldDemoLnch000001", "name": "Task", "type": "singleLineText" },
+        {
+          "id": "fldDemoLnch000002",
+          "name": "Concept",
+          "type": "multipleRecordLinks",
+          "options": {
+            "linkedTableId": "tblDemoCncp000001",
+            "isReversed": false,
+            "prefersSingleRecordLink": false
+          }
+        },
+        {
+          "id": "fldDemoLnch000003",
+          "name": "Due",
+          "type": "date",
+          "options": { "dateFormat": { "name": "us", "format": "M/D/YYYY" } }
+        },
+        { "id": "fldDemoLnch000004", "name": "Owner", "type": "singleCollaborator", "options": {} },
+        {
+          "id": "fldDemoLnch000005",
+          "name": "Done",
+          "type": "checkbox",
+          "options": { "icon": "check", "color": "greenBright" }
+        },
+        { "id": "fldDemoLnch000006", "name": "Notes (old)", "type": "multilineText" }
+      ]
+    }
+  ]
+}

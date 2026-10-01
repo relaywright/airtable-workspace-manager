@@ -1,0 +1,421 @@
+{
+  "tables": [
+    {
+      "id": "tblDemoOrdr000001",
+      "name": "Orders",
+      "primaryFieldId": "fldDemoOrdr000001",
+      "fields": [
+        { "id": "fldDemoOrdr000001", "name": "Order Number", "type": "singleLineText" },
+        {
+          "id": "fldDemoOrdr000002",
+          "name": "Customer",
+          "type": "multipleRecordLinks",
+          "options": {
+            "linkedTableId": "tblDemoCust000001",
+            "isReversed": false,
+            "prefersSingleRecordLink": false
+          }
+        },
+        {
+          "id": "fldDemoOrdr000003",
+          "name": "Customer Email",
+          "type": "multipleLookupValues",
+          "options": {
+            "isValid": true,
+            "recordLinkFieldId": "fldDemoOrdr000002",
+            "fieldIdInLinkedTable": "fldDemoCust000002"
+          }
+        },
+        {
+          "id": "fldDemoOrdr000004",
+          "name": "Order Date",
+          "type": "dateTime",
+          "options": {
+            "dateFormat": { "name": "us", "format": "M/D/YYYY" },
+            "timeFormat": { "name": "12hour", "format": "h:mma" },
+            "timeZone": "America/Los_Angeles"
+          }
+        },
+        {
+          "id": "fldDemoOrdr000005",
+          "name": "Channel",
+          "type": "singleSelect",
+          "options": {
+            "choices": [
+              { "id": "selDemoOrdr0501", "name": "Web Store", "color": "blueLight2" },
+              { "id": "selDemoOrdr0502", "name": "Wholesale", "color": "cyanLight2" },
+              { "id": "selDemoOrdr0503", "name": "Retail POS", "color": "tealLight2" },
+              { "id": "selDemoOrdr0504", "name": "Marketplace", "color": "greenLight2" }
+            ]
+          }
+        },
+        {
+          "id": "fldDemoOrdr000006",
+          "name": "Status",
+          "type": "singleSelect",
+          "options": {
+            "choices": [
+              { "id": "selDemoOrdr0601", "name": "Pending", "color": "blueLight2" },
+              { "id": "selDemoOrdr0602", "name": "Packed", "color": "cyanLight2" },
+              { "id": "selDemoOrdr0603", "name": "Shipped", "color": "tealLight2" },
+              { "id": "selDemoOrdr0604", "name": "Delivered", "color": "greenLight2" },
+              { "id": "selDemoOrdr0605", "name": "Cancelled", "color": "yellowLight2" }
+            ]
+          }
+        },
+        {
+          "id": "fldDemoOrdr000007",
+          "name": "Line Items",
+          "type": "multipleRecordLinks",
+          "options": {
+            "linkedTableId": "tblDemoItem000001",
+            "isReversed": false,
+            "prefersSingleRecordLink": false
+          }
+        },
+        {
+          "id": "fldDemoOrdr000008",
+          "name": "Item Names",
+          "type": "multipleLookupValues",
+          "options": {
+            "isValid": true,
+            "recordLinkFieldId": "fldDemoOrdr000007",
+            "fieldIdInLinkedTable": "fldDemoItem000001"
+          }
+        },
+        {
+          "id": "fldDemoOrdr000009",
+          "name": "Items Total",
+          "type": "rollup",
+          "options": {
+            "recordLinkFieldId": "fldDemoOrdr000007",
+            "fieldIdInLinkedTable": "fldDemoItem000007",
+            "formula": "SUM(values)"
+          }
+        },
+        {
+          "id": "fldDemoOrdr000010",
+          "name": "Shipping Fee",
+          "type": "currency",
+          "options": { "precision": 2, "symbol": "$" }
+        },
+        { "id": "fldDemoOrdr000011", "name": "Discount", "type": "percent", "options": { "precision": 1 } },
+        {
+          "id": "fldDemoOrdr000012",
+          "name": "Order Total",
+          "type": "formula",
+          "options": {
+            "formula": "{Items Total} + {Shipping Fee} - ({Items Total} * {Discount})",
+            "result": { "type": "currency" }
+          }
+        },
+        {
+          "id": "fldDemoOrdr000013",
+          "name": "Shipment",
+          "type": "multipleRecordLinks",
+          "options": {
+            "linkedTableId": "tblDemoShip000001",
+            "isReversed": false,
+            "prefersSingleRecordLink": false
+          }
+        },
+        { "id": "fldDemoOrdr000014", "name": "Gift Message", "type": "multilineText" },
+        {
+          "id": "fldDemoOrdr000015",
+          "name": "Rush",
+          "type": "checkbox",
+          "options": { "icon": "check", "color": "greenBright" }
+        },
+        {
+          "id": "fldDemoOrdr000016",
+          "name": "Created",
+          "type": "createdTime",
+          "options": {
+            "result": {
+              "type": "dateTime",
+              "options": {
+                "dateFormat": { "name": "us", "format": "M/D/YYYY" },
+                "timeFormat": { "name": "12hour", "format": "h:mma" },
+                "timeZone": "America/Los_Angeles"
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "tblDemoItem000001",
+      "name": "Order Items",
+      "primaryFieldId": "fldDemoItem000001",
+      "fields": [
+        { "id": "fldDemoItem000001", "name": "Line Item", "type": "singleLineText" },
+        {
+          "id": "fldDemoItem000002",
+          "name": "Order",
+          "type": "multipleRecordLinks",
+          "options": {
+            "linkedTableId": "tblDemoOrdr000001",
+            "isReversed": false,
+            "prefersSingleRecordLink": false
+          }
+        },
+        {
+          "id": "fldDemoItem000003",
+          "name": "Product",
+          "type": "multipleRecordLinks",
+          "options": {
+            "linkedTableId": "tblDemoPSyn000001",
+            "isReversed": false,
+            "prefersSingleRecordLink": false
+          }
+        },
+        {
+          "id": "fldDemoItem000004",
+          "name": "SKU",
+          "type": "multipleLookupValues",
+          "options": {
+            "isValid": true,
+            "recordLinkFieldId": "fldDemoItem000003",
+            "fieldIdInLinkedTable": "fldDemoPSyn000002"
+          }
+        },
+        { "id": "fldDemoItem000005", "name": "Quantity", "type": "number", "options": { "precision": 0 } },
+        {
+          "id": "fldDemoItem000006",
+          "name": "Unit Price",
+          "type": "currency",
+          "options": { "precision": 2, "symbol": "$" }
+        },
+        {
+          "id": "fldDemoItem000007",
+          "name": "Line Total",
+          "type": "formula",
+          "options": { "formula": "{Quantity} * {Unit Price}", "result": { "type": "currency" } }
+        }
+      ]
+    },
+    {
+      "id": "tblDemoPSyn000001",
+      "name": "Products",
+      "primaryFieldId": "fldDemoPSyn000001",
+      "syncSource": { "sourceApplicationId": "appDemoProduct001", "sourceTableId": "tblDemoProd000001" },
+      "fields": [
+        { "id": "fldDemoPSyn000001", "name": "Product Name", "type": "singleLineText" },
+        { "id": "fldDemoPSyn000002", "name": "SKU", "type": "singleLineText" },
+        {
+          "id": "fldDemoPSyn000003",
+          "name": "Status",
+          "type": "singleSelect",
+          "options": {
+            "choices": [
+              { "id": "selDemoPSyn0301", "name": "Active", "color": "blueLight2" },
+              { "id": "selDemoPSyn0302", "name": "Draft", "color": "cyanLight2" },
+              { "id": "selDemoPSyn0303", "name": "Seasonal", "color": "tealLight2" },
+              { "id": "selDemoPSyn0304", "name": "Discontinued", "color": "greenLight2" }
+            ]
+          }
+        },
+        {
+          "id": "fldDemoPSyn000004",
+          "name": "Retail Price",
+          "type": "currency",
+          "options": { "precision": 2, "symbol": "$" }
+        },
+        {
+          "id": "fldDemoPSyn000005",
+          "name": "Wholesale Price",
+          "type": "currency",
+          "options": { "precision": 2, "symbol": "$" }
+        },
+        { "id": "fldDemoPSyn000006", "name": "Weight (lb)", "type": "number", "options": { "precision": 1 } },
+        { "id": "fldDemoPSyn000007", "name": "Dimensions", "type": "singleLineText" },
+        { "id": "fldDemoPSyn000008", "name": "Barcode", "type": "barcode" },
+        {
+          "id": "fldDemoPSyn000009",
+          "name": "Product Photos",
+          "type": "multipleAttachments",
+          "options": { "isReversed": false }
+        },
+        {
+          "id": "fldDemoPSyn000010",
+          "name": "Launch Date",
+          "type": "date",
+          "options": { "dateFormat": { "name": "us", "format": "M/D/YYYY" } }
+        },
+        {
+          "id": "fldDemoPSyn000011",
+          "name": "Tags",
+          "type": "multipleSelects",
+          "options": {
+            "choices": [
+              { "id": "selDemoPSyn1101", "name": "Bestseller", "color": "blueLight2" },
+              { "id": "selDemoPSyn1102", "name": "New", "color": "cyanLight2" },
+              { "id": "selDemoPSyn1103", "name": "Gift Idea", "color": "tealLight2" },
+              { "id": "selDemoPSyn1104", "name": "Eco", "color": "greenLight2" },
+              { "id": "selDemoPSyn1105", "name": "Limited", "color": "yellowLight2" }
+            ]
+          }
+        },
+        {
+          "id": "fldDemoPSyn000012",
+          "name": "Order Items",
+          "type": "multipleRecordLinks",
+          "options": {
+            "linkedTableId": "tblDemoItem000001",
+            "isReversed": false,
+            "prefersSingleRecordLink": false
+          }
+        }
+      ]
+    },
+    {
+      "id": "tblDemoCust000001",
+      "name": "Customers",
+      "primaryFieldId": "fldDemoCust000001",
+      "fields": [
+        { "id": "fldDemoCust000001", "name": "Full Name", "type": "singleLineText" },
+        { "id": "fldDemoCust000002", "name": "Email", "type": "email" },
+        { "id": "fldDemoCust000003", "name": "Phone", "type": "phoneNumber" },
+        { "id": "fldDemoCust000004", "name": "Shipping Address", "type": "multilineText" },
+        { "id": "fldDemoCust000005", "name": "City", "type": "singleLineText" },
+        { "id": "fldDemoCust000006", "name": "State", "type": "singleLineText" },
+        {
+          "id": "fldDemoCust000007",
+          "name": "Customer Since",
+          "type": "date",
+          "options": { "dateFormat": { "name": "us", "format": "M/D/YYYY" } }
+        },
+        {
+          "id": "fldDemoCust000008",
+          "name": "Orders",
+          "type": "multipleRecordLinks",
+          "options": {
+            "linkedTableId": "tblDemoOrdr000001",
+            "isReversed": false,
+            "prefersSingleRecordLink": false
+          }
+        },
+        {
+          "id": "fldDemoCust000009",
+          "name": "Order Count",
+          "type": "count",
+          "options": { "isValid": true, "recordLinkFieldId": "fldDemoCust000008" }
+        },
+        {
+          "id": "fldDemoCust000010",
+          "name": "Lifetime Value",
+          "type": "rollup",
+          "options": {
+            "recordLinkFieldId": "fldDemoCust000008",
+            "fieldIdInLinkedTable": "fldDemoOrdr000012",
+            "formula": "SUM(values)"
+          }
+        },
+        {
+          "id": "fldDemoCust000011",
+          "name": "Loyalty Tier",
+          "type": "singleSelect",
+          "options": {
+            "choices": [
+              { "id": "selDemoCust1101", "name": "Bronze", "color": "blueLight2" },
+              { "id": "selDemoCust1102", "name": "Silver", "color": "cyanLight2" },
+              { "id": "selDemoCust1103", "name": "Gold", "color": "tealLight2" }
+            ]
+          }
+        },
+        {
+          "id": "fldDemoCust000012",
+          "name": "Marketing Opt-In",
+          "type": "checkbox",
+          "options": { "icon": "check", "color": "greenBright" }
+        }
+      ]
+    },
+    {
+      "id": "tblDemoShip000001",
+      "name": "Shipments",
+      "primaryFieldId": "fldDemoShip000001",
+      "fields": [
+        { "id": "fldDemoShip000001", "name": "Tracking Number", "type": "singleLineText" },
+        {
+          "id": "fldDemoShip000002",
+          "name": "Order",
+          "type": "multipleRecordLinks",
+          "options": {
+            "linkedTableId": "tblDemoOrdr000001",
+            "isReversed": false,
+            "prefersSingleRecordLink": false
+          }
+        },
+        {
+          "id": "fldDemoShip000003",
+          "name": "Carrier",
+          "type": "multipleRecordLinks",
+          "options": {
+            "linkedTableId": "tblDemoCarr000001",
+            "isReversed": false,
+            "prefersSingleRecordLink": false
+          }
+        },
+        {
+          "id": "fldDemoShip000004",
+          "name": "Ship Date",
+          "type": "date",
+          "options": { "dateFormat": { "name": "us", "format": "M/D/YYYY" } }
+        },
+        {
+          "id": "fldDemoShip000005",
+          "name": "Delivered On",
+          "type": "date",
+          "options": { "dateFormat": { "name": "us", "format": "M/D/YYYY" } }
+        },
+        {
+          "id": "fldDemoShip000006",
+          "name": "Status",
+          "type": "singleSelect",
+          "options": {
+            "choices": [
+              { "id": "selDemoShip0601", "name": "Label Created", "color": "blueLight2" },
+              { "id": "selDemoShip0602", "name": "In Transit", "color": "cyanLight2" },
+              { "id": "selDemoShip0603", "name": "Delivered", "color": "tealLight2" },
+              { "id": "selDemoShip0604", "name": "Exception", "color": "greenLight2" }
+            ]
+          }
+        },
+        {
+          "id": "fldDemoShip000007",
+          "name": "Shipping Cost",
+          "type": "currency",
+          "options": { "precision": 2, "symbol": "$" }
+        },
+        {
+          "id": "fldDemoShip000008",
+          "name": "Package Weight (lb)",
+          "type": "number",
+          "options": { "precision": 1 }
+        }
+      ]
+    },
+    {
+      "id": "tblDemoCarr000001",
+      "name": "Carriers",
+      "primaryFieldId": "fldDemoCarr000001",
+      "fields": [
+        { "id": "fldDemoCarr000001", "name": "Carrier Name", "type": "singleLineText" },
+        { "id": "fldDemoCarr000002", "name": "Account Number", "type": "singleLineText" },
+        { "id": "fldDemoCarr000003", "name": "Support Phone", "type": "phoneNumber" },
+        { "id": "fldDemoCarr000004", "name": "Tracking URL", "type": "url" },
+        {
+          "id": "fldDemoCarr000005",
+          "name": "Shipments",
+          "type": "multipleRecordLinks",
+          "options": {
+            "linkedTableId": "tblDemoShip000001",
+            "isReversed": false,
+            "prefersSingleRecordLink": false
+          }
+        }
+      ]
+    }
+  ]
+}

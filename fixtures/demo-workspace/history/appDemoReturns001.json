@@ -1,0 +1,20 @@
+{
+  "changes": [
+    {
+      "daysAgo": 34,
+      "summary": "Added a second notes field",
+      "edits": [{ "op": "addField", "fieldId": "fldDemoRtrn000012" }]
+    },
+    {
+      "daysAgo": 13,
+      "summary": "Refund Amt changed from a number to currency",
+      "edits": [
+        {
+          "op": "modifyField",
+          "fieldId": "fldDemoRtrn000005",
+          "from": { "type": "number", "options": { "precision": 2 } }
+        }
+      ]
+    }
+  ]
+}

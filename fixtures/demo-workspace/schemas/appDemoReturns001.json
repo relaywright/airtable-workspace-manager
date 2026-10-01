@@ -1,0 +1,252 @@
+{
+  "tables": [
+    {
+      "id": "tblDemoRtrn000001",
+      "name": "Returns",
+      "primaryFieldId": "fldDemoRtrn000001",
+      "fields": [
+        { "id": "fldDemoRtrn000001", "name": "RMA #", "type": "singleLineText" },
+        {
+          "id": "fldDemoRtrn000002",
+          "name": "Web Order",
+          "type": "multipleRecordLinks",
+          "options": {
+            "linkedTableId": "tblDemoWebO000001",
+            "isReversed": false,
+            "prefersSingleRecordLink": false
+          }
+        },
+        {
+          "id": "fldDemoRtrn000003",
+          "name": "Reason",
+          "type": "singleSelect",
+          "options": {
+            "choices": [
+              { "id": "selDemoRtrn0301", "name": "Damaged", "color": "blueLight2" },
+              { "id": "selDemoRtrn0302", "name": "Wrong Item", "color": "cyanLight2" },
+              { "id": "selDemoRtrn0303", "name": "Changed Mind", "color": "tealLight2" },
+              { "id": "selDemoRtrn0304", "name": "Defective", "color": "greenLight2" },
+              { "id": "selDemoRtrn0305", "name": "Late Delivery", "color": "yellowLight2" }
+            ]
+          }
+        },
+        {
+          "id": "fldDemoRtrn000004",
+          "name": "Condition",
+          "type": "singleSelect",
+          "options": {
+            "choices": [
+              { "id": "selDemoRtrn0401", "name": "New", "color": "blueLight2" },
+              { "id": "selDemoRtrn0402", "name": "Opened", "color": "cyanLight2" },
+              { "id": "selDemoRtrn0403", "name": "Damaged", "color": "tealLight2" }
+            ]
+          }
+        },
+        {
+          "id": "fldDemoRtrn000005",
+          "name": "Refund Amt",
+          "type": "currency",
+          "options": { "precision": 2, "symbol": "$" }
+        },
+        {
+          "id": "fldDemoRtrn000006",
+          "name": "Refund Status",
+          "type": "singleSelect",
+          "options": {
+            "choices": [
+              { "id": "selDemoRtrn0601", "name": "Pending", "color": "blueLight2" },
+              { "id": "selDemoRtrn0602", "name": "Approved", "color": "cyanLight2" },
+              { "id": "selDemoRtrn0603", "name": "Refunded", "color": "tealLight2" },
+              { "id": "selDemoRtrn0604", "name": "Denied", "color": "greenLight2" }
+            ]
+          }
+        },
+        {
+          "id": "fldDemoRtrn000007",
+          "name": "Restock",
+          "type": "checkbox",
+          "options": { "icon": "check", "color": "greenBright" }
+        },
+        {
+          "id": "fldDemoRtrn000008",
+          "name": "Photos",
+          "type": "multipleAttachments",
+          "options": { "isReversed": false }
+        },
+        {
+          "id": "fldDemoRtrn000009",
+          "name": "Received",
+          "type": "date",
+          "options": { "dateFormat": { "name": "us", "format": "M/D/YYYY" } }
+        },
+        {
+          "id": "fldDemoRtrn000010",
+          "name": "Created",
+          "type": "createdTime",
+          "options": {
+            "result": {
+              "type": "dateTime",
+              "options": {
+                "dateFormat": { "name": "us", "format": "M/D/YYYY" },
+                "timeFormat": { "name": "12hour", "format": "h:mma" },
+                "timeZone": "America/Los_Angeles"
+              }
+            }
+          }
+        },
+        { "id": "fldDemoRtrn000011", "name": "Notes", "type": "multilineText" },
+        { "id": "fldDemoRtrn000012", "name": "Notes 2", "type": "multilineText" }
+      ]
+    },
+    {
+      "id": "tblDemoWebO000001",
+      "name": "Web Orders",
+      "primaryFieldId": "fldDemoWebO000001",
+      "syncSource": { "sourceApplicationId": "appDemoOrders0001", "sourceTableId": "tblDemoOrdr000001" },
+      "fields": [
+        { "id": "fldDemoWebO000001", "name": "Order Number", "type": "singleLineText" },
+        {
+          "id": "fldDemoWebO000002",
+          "name": "Order Date",
+          "type": "dateTime",
+          "options": {
+            "dateFormat": { "name": "us", "format": "M/D/YYYY" },
+            "timeFormat": { "name": "12hour", "format": "h:mma" },
+            "timeZone": "America/Los_Angeles"
+          }
+        },
+        {
+          "id": "fldDemoWebO000003",
+          "name": "Channel",
+          "type": "singleSelect",
+          "options": {
+            "choices": [
+              { "id": "selDemoWebO0301", "name": "Web Store", "color": "blueLight2" },
+              { "id": "selDemoWebO0302", "name": "Wholesale", "color": "cyanLight2" },
+              { "id": "selDemoWebO0303", "name": "Retail POS", "color": "tealLight2" },
+              { "id": "selDemoWebO0304", "name": "Marketplace", "color": "greenLight2" }
+            ]
+          }
+        },
+        {
+          "id": "fldDemoWebO000004",
+          "name": "Status",
+          "type": "singleSelect",
+          "options": {
+            "choices": [
+              { "id": "selDemoWebO0401", "name": "Pending", "color": "blueLight2" },
+              { "id": "selDemoWebO0402", "name": "Packed", "color": "cyanLight2" },
+              { "id": "selDemoWebO0403", "name": "Shipped", "color": "tealLight2" },
+              { "id": "selDemoWebO0404", "name": "Delivered", "color": "greenLight2" },
+              { "id": "selDemoWebO0405", "name": "Cancelled", "color": "yellowLight2" }
+            ]
+          }
+        },
+        {
+          "id": "fldDemoWebO000005",
+          "name": "Shipping Fee",
+          "type": "currency",
+          "options": { "precision": 2, "symbol": "$" }
+        },
+        { "id": "fldDemoWebO000006", "name": "Gift Message", "type": "multilineText" },
+        {
+          "id": "fldDemoWebO000007",
+          "name": "Rush",
+          "type": "checkbox",
+          "options": { "icon": "check", "color": "greenBright" }
+        },
+        {
+          "id": "fldDemoWebO000008",
+          "name": "Returns",
+          "type": "multipleRecordLinks",
+          "options": {
+            "linkedTableId": "tblDemoRtrn000001",
+            "isReversed": false,
+            "prefersSingleRecordLink": false
+          }
+        }
+      ]
+    },
+    {
+      "id": "tblDemoWrty000001",
+      "name": "Warranty Claims",
+      "primaryFieldId": "fldDemoWrty000001",
+      "fields": [
+        { "id": "fldDemoWrty000001", "name": "Claim", "type": "singleLineText" },
+        { "id": "fldDemoWrty000002", "name": "Product Name", "type": "singleLineText" },
+        {
+          "id": "fldDemoWrty000003",
+          "name": "Purchase Date",
+          "type": "date",
+          "options": { "dateFormat": { "name": "us", "format": "M/D/YYYY" } }
+        },
+        { "id": "fldDemoWrty000004", "name": "Issue", "type": "multilineText" },
+        {
+          "id": "fldDemoWrty000005",
+          "name": "Approved",
+          "type": "checkbox",
+          "options": { "icon": "check", "color": "greenBright" }
+        },
+        {
+          "id": "fldDemoWrty000006",
+          "name": "Replacement Shipped",
+          "type": "date",
+          "options": { "dateFormat": { "name": "us", "format": "M/D/YYYY" } }
+        },
+        {
+          "id": "fldDemoWrty000007",
+          "name": "Claim Photos",
+          "type": "multipleAttachments",
+          "options": { "isReversed": false }
+        }
+      ]
+    },
+    {
+      "id": "tblDemoRfnd000001",
+      "name": "Refund Log",
+      "primaryFieldId": "fldDemoRfnd000001",
+      "fields": [
+        { "id": "fldDemoRfnd000001", "name": "Refund", "type": "singleLineText" },
+        {
+          "id": "fldDemoRfnd000002",
+          "name": "Return",
+          "type": "multipleRecordLinks",
+          "options": {
+            "linkedTableId": "tblDemoRtrn000001",
+            "isReversed": false,
+            "prefersSingleRecordLink": false
+          }
+        },
+        {
+          "id": "fldDemoRfnd000003",
+          "name": "Amount",
+          "type": "currency",
+          "options": { "precision": 2, "symbol": "$" }
+        },
+        {
+          "id": "fldDemoRfnd000004",
+          "name": "Processed On",
+          "type": "dateTime",
+          "options": {
+            "dateFormat": { "name": "us", "format": "M/D/YYYY" },
+            "timeFormat": { "name": "12hour", "format": "h:mma" },
+            "timeZone": "America/Los_Angeles"
+          }
+        },
+        { "id": "fldDemoRfnd000005", "name": "Processed By", "type": "singleCollaborator", "options": {} },
+        {
+          "id": "fldDemoRfnd000006",
+          "name": "Method",
+          "type": "singleSelect",
+          "options": {
+            "choices": [
+              { "id": "selDemoRfnd0601", "name": "Original Payment", "color": "blueLight2" },
+              { "id": "selDemoRfnd0602", "name": "Store Credit", "color": "cyanLight2" },
+              { "id": "selDemoRfnd0603", "name": "Exchange", "color": "tealLight2" }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

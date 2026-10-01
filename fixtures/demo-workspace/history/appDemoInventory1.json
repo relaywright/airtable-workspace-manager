@@ -1,0 +1,39 @@
+{
+  "changes": [
+    {
+      "daysAgo": 40,
+      "summary": "Added a Cycle Counts table",
+      "edits": [{ "op": "addTable", "tableId": "tblDemoCycl000001" }]
+    },
+    {
+      "daysAgo": 21,
+      "summary": "Available stock now subtracts reserved units",
+      "edits": [
+        { "op": "addField", "fieldId": "fldDemoStck000005" },
+        {
+          "op": "modifyField",
+          "fieldId": "fldDemoStck000006",
+          "from": { "options": { "formula": "{Qty On Hand}", "result": { "type": "number" } } }
+        }
+      ]
+    },
+    {
+      "daysAgo": 5,
+      "summary": "Added 3PL as a location type",
+      "edits": [
+        {
+          "op": "modifyField",
+          "fieldId": "fldDemoLocs000002",
+          "from": {
+            "options": {
+              "choices": [
+                { "id": "selDemoLocs0201", "name": "Warehouse", "color": "blueLight2" },
+                { "id": "selDemoLocs0202", "name": "Retail Store", "color": "cyanLight2" }
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

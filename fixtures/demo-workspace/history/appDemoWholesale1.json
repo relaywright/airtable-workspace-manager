@@ -1,0 +1,25 @@
+{
+  "changes": [
+    {
+      "daysAgo": 43,
+      "summary": "Added acct_status from a spreadsheet import",
+      "edits": [{ "op": "addField", "fieldId": "fldDemoAcct000003" }]
+    },
+    {
+      "daysAgo": 27,
+      "summary": "Added a Credit Limit field",
+      "edits": [{ "op": "addField", "fieldId": "fldDemoAcct000008" }]
+    },
+    {
+      "daysAgo": 10,
+      "summary": "Removed the unused Fax field",
+      "edits": [
+        {
+          "op": "removeField",
+          "tableId": "tblDemoWCon000001",
+          "field": { "id": "fldDemoWCon000006", "name": "Fax", "type": "phoneNumber" }
+        }
+      ]
+    }
+  ]
+}

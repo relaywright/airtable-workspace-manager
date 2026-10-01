@@ -1,0 +1,263 @@
+{
+  "tables": [
+    {
+      "id": "tblDemoFPrd000001",
+      "name": "Product Costs",
+      "primaryFieldId": "fldDemoFPrd000001",
+      "syncSource": { "sourceApplicationId": "appDemoProduct001", "sourceTableId": "tblDemoProd000001" },
+      "fields": [
+        { "id": "fldDemoFPrd000001", "name": "Product Name", "type": "singleLineText" },
+        { "id": "fldDemoFPrd000002", "name": "SKU", "type": "singleLineText" },
+        {
+          "id": "fldDemoFPrd000003",
+          "name": "Unit Cost",
+          "type": "currency",
+          "options": { "precision": 2, "symbol": "$" }
+        },
+        {
+          "id": "fldDemoFPrd000004",
+          "name": "Wholesale Price",
+          "type": "currency",
+          "options": { "precision": 2, "symbol": "$" }
+        },
+        {
+          "id": "fldDemoFPrd000005",
+          "name": "Status",
+          "type": "singleSelect",
+          "options": {
+            "choices": [
+              { "id": "selDemoFPrd0501", "name": "Active", "color": "blueLight2" },
+              { "id": "selDemoFPrd0502", "name": "Draft", "color": "cyanLight2" },
+              { "id": "selDemoFPrd0503", "name": "Seasonal", "color": "tealLight2" },
+              { "id": "selDemoFPrd0504", "name": "Discontinued", "color": "greenLight2" }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "tblDemoInvc000001",
+      "name": "Invoices",
+      "primaryFieldId": "fldDemoInvc000001",
+      "fields": [
+        { "id": "fldDemoInvc000001", "name": "Invoice Number", "type": "singleLineText" },
+        { "id": "fldDemoInvc000002", "name": "Bill To", "type": "singleLineText" },
+        {
+          "id": "fldDemoInvc000003",
+          "name": "Invoice Date",
+          "type": "date",
+          "options": { "dateFormat": { "name": "us", "format": "M/D/YYYY" } }
+        },
+        {
+          "id": "fldDemoInvc000004",
+          "name": "Due Date",
+          "type": "date",
+          "options": { "dateFormat": { "name": "us", "format": "M/D/YYYY" } }
+        },
+        {
+          "id": "fldDemoInvc000005",
+          "name": "Amount",
+          "type": "currency",
+          "options": { "precision": 2, "symbol": "$" }
+        },
+        {
+          "id": "fldDemoInvc000006",
+          "name": "Status",
+          "type": "singleSelect",
+          "options": {
+            "choices": [
+              { "id": "selDemoInvc0601", "name": "Draft", "color": "blueLight2" },
+              { "id": "selDemoInvc0602", "name": "Sent", "color": "cyanLight2" },
+              { "id": "selDemoInvc0603", "name": "Paid", "color": "tealLight2" },
+              { "id": "selDemoInvc0604", "name": "Overdue", "color": "greenLight2" }
+            ]
+          }
+        },
+        {
+          "id": "fldDemoInvc000007",
+          "name": "Days Overdue",
+          "type": "formula",
+          "options": {
+            "formula": "IF({Status} = 'Overdue', DATETIME_DIFF(TODAY(), {Due Date}, 'days'))",
+            "result": { "type": "number" }
+          }
+        },
+        {
+          "id": "fldDemoInvc000008",
+          "name": "Payment Method",
+          "type": "singleSelect",
+          "options": {
+            "choices": [
+              { "id": "selDemoInvc0801", "name": "ACH", "color": "blueLight2" },
+              { "id": "selDemoInvc0802", "name": "Card", "color": "cyanLight2" },
+              { "id": "selDemoInvc0803", "name": "Check", "color": "tealLight2" }
+            ]
+          }
+        },
+        {
+          "id": "fldDemoInvc000009",
+          "name": "Invoice PDF",
+          "type": "multipleAttachments",
+          "options": { "isReversed": false }
+        },
+        {
+          "id": "fldDemoInvc000010",
+          "name": "Paid On",
+          "type": "date",
+          "options": { "dateFormat": { "name": "us", "format": "M/D/YYYY" } }
+        }
+      ]
+    },
+    {
+      "id": "tblDemoBill000001",
+      "name": "Supplier Bills",
+      "primaryFieldId": "fldDemoBill000001",
+      "fields": [
+        { "id": "fldDemoBill000001", "name": "Bill Number", "type": "singleLineText" },
+        {
+          "id": "fldDemoBill000002",
+          "name": "Purchase Order",
+          "type": "multipleRecordLinks",
+          "options": {
+            "linkedTableId": "tblDemoPurO000001",
+            "isReversed": false,
+            "prefersSingleRecordLink": false
+          }
+        },
+        { "id": "fldDemoBill000003", "name": "Supplier", "type": "singleLineText" },
+        {
+          "id": "fldDemoBill000004",
+          "name": "Amount",
+          "type": "currency",
+          "options": { "precision": 2, "symbol": "$" }
+        },
+        {
+          "id": "fldDemoBill000005",
+          "name": "Due Date",
+          "type": "date",
+          "options": { "dateFormat": { "name": "us", "format": "M/D/YYYY" } }
+        },
+        {
+          "id": "fldDemoBill000006",
+          "name": "Approved",
+          "type": "checkbox",
+          "options": { "icon": "check", "color": "greenBright" }
+        },
+        { "id": "fldDemoBill000007", "name": "Approver", "type": "singleCollaborator", "options": {} },
+        {
+          "id": "fldDemoBill000008",
+          "name": "Paid",
+          "type": "checkbox",
+          "options": { "icon": "check", "color": "greenBright" }
+        }
+      ]
+    },
+    {
+      "id": "tblDemoExpn000001",
+      "name": "Expenses",
+      "primaryFieldId": "fldDemoExpn000001",
+      "fields": [
+        { "id": "fldDemoExpn000001", "name": "Description", "type": "singleLineText" },
+        {
+          "id": "fldDemoExpn000002",
+          "name": "Category",
+          "type": "singleSelect",
+          "options": {
+            "choices": [
+              { "id": "selDemoExpn0201", "name": "Shipping", "color": "blueLight2" },
+              { "id": "selDemoExpn0202", "name": "Software", "color": "cyanLight2" },
+              { "id": "selDemoExpn0203", "name": "Rent", "color": "tealLight2" },
+              { "id": "selDemoExpn0204", "name": "Marketing", "color": "greenLight2" },
+              { "id": "selDemoExpn0205", "name": "Payroll", "color": "yellowLight2" },
+              { "id": "selDemoExpn0206", "name": "Supplies", "color": "orangeLight2" }
+            ]
+          }
+        },
+        {
+          "id": "fldDemoExpn000003",
+          "name": "Amount",
+          "type": "currency",
+          "options": { "precision": 2, "symbol": "$" }
+        },
+        {
+          "id": "fldDemoExpn000004",
+          "name": "Date",
+          "type": "date",
+          "options": { "dateFormat": { "name": "us", "format": "M/D/YYYY" } }
+        },
+        {
+          "id": "fldDemoExpn000005",
+          "name": "Receipt",
+          "type": "multipleAttachments",
+          "options": { "isReversed": false }
+        },
+        { "id": "fldDemoExpn000006", "name": "Submitted By", "type": "createdBy" },
+        {
+          "id": "fldDemoExpn000007",
+          "name": "Reimbursable",
+          "type": "checkbox",
+          "options": { "icon": "check", "color": "greenBright" }
+        }
+      ]
+    },
+    {
+      "id": "tblDemoBdgt000001",
+      "name": "Budgets",
+      "primaryFieldId": "fldDemoBdgt000001",
+      "fields": [
+        { "id": "fldDemoBdgt000001", "name": "Budget Line", "type": "singleLineText" },
+        {
+          "id": "fldDemoBdgt000002",
+          "name": "Department",
+          "type": "singleSelect",
+          "options": {
+            "choices": [
+              { "id": "selDemoBdgt0201", "name": "Operations", "color": "blueLight2" },
+              { "id": "selDemoBdgt0202", "name": "Marketing", "color": "cyanLight2" },
+              { "id": "selDemoBdgt0203", "name": "Retail", "color": "tealLight2" },
+              { "id": "selDemoBdgt0204", "name": "Wholesale", "color": "greenLight2" },
+              { "id": "selDemoBdgt0205", "name": "Product", "color": "yellowLight2" }
+            ]
+          }
+        },
+        {
+          "id": "fldDemoBdgt000003",
+          "name": "Quarter",
+          "type": "singleSelect",
+          "options": {
+            "choices": [
+              { "id": "selDemoBdgt0301", "name": "Q1", "color": "blueLight2" },
+              { "id": "selDemoBdgt0302", "name": "Q2", "color": "cyanLight2" },
+              { "id": "selDemoBdgt0303", "name": "Q3", "color": "tealLight2" },
+              { "id": "selDemoBdgt0304", "name": "Q4", "color": "greenLight2" }
+            ]
+          }
+        },
+        {
+          "id": "fldDemoBdgt000004",
+          "name": "Planned",
+          "type": "currency",
+          "options": { "precision": 2, "symbol": "$" }
+        },
+        {
+          "id": "fldDemoBdgt000005",
+          "name": "Actual",
+          "type": "currency",
+          "options": { "precision": 2, "symbol": "$" }
+        },
+        {
+          "id": "fldDemoBdgt000006",
+          "name": "Variance",
+          "type": "formula",
+          "options": { "formula": "{Actual} - {Planned}", "result": { "type": "currency" } }
+        },
+        {
+          "id": "fldDemoBdgt000007",
+          "name": "Variance %",
+          "type": "formula",
+          "options": { "formula": "({Actual} - {Planned}) / {Planned}", "result": { "type": "percent" } }
+        }
+      ]
+    }
+  ]
+}

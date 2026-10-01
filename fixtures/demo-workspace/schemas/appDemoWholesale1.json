@@ -1,0 +1,282 @@
+{
+  "tables": [
+    {
+      "id": "tblDemoAcct000001",
+      "name": "Accounts",
+      "primaryFieldId": "fldDemoAcct000001",
+      "fields": [
+        { "id": "fldDemoAcct000001", "name": "Account Name", "type": "singleLineText" },
+        {
+          "id": "fldDemoAcct000002",
+          "name": "Account Type",
+          "type": "singleSelect",
+          "options": {
+            "choices": [
+              { "id": "selDemoAcct0201", "name": "Boutique", "color": "blueLight2" },
+              { "id": "selDemoAcct0202", "name": "Gift Shop", "color": "cyanLight2" },
+              { "id": "selDemoAcct0203", "name": "Interior Designer", "color": "tealLight2" },
+              { "id": "selDemoAcct0204", "name": "Hotel", "color": "greenLight2" }
+            ]
+          }
+        },
+        {
+          "id": "fldDemoAcct000003",
+          "name": "acct_status",
+          "type": "singleSelect",
+          "options": {
+            "choices": [
+              { "id": "selDemoAcct0301", "name": "Prospect", "color": "blueLight2" },
+              { "id": "selDemoAcct0302", "name": "Active", "color": "cyanLight2" },
+              { "id": "selDemoAcct0303", "name": "Paused", "color": "tealLight2" },
+              { "id": "selDemoAcct0304", "name": "Closed", "color": "greenLight2" }
+            ]
+          }
+        },
+        { "id": "fldDemoAcct000004", "name": "City", "type": "singleLineText" },
+        { "id": "fldDemoAcct000005", "name": "State", "type": "singleLineText" },
+        {
+          "id": "fldDemoAcct000006",
+          "name": "Contacts",
+          "type": "multipleRecordLinks",
+          "options": {
+            "linkedTableId": "tblDemoWCon000001",
+            "isReversed": false,
+            "prefersSingleRecordLink": false
+          }
+        },
+        {
+          "id": "fldDemoAcct000007",
+          "name": "Opening Order Date",
+          "type": "date",
+          "options": { "dateFormat": { "name": "us", "format": "M/D/YYYY" } }
+        },
+        {
+          "id": "fldDemoAcct000008",
+          "name": "Credit Limit",
+          "type": "currency",
+          "options": { "precision": 2, "symbol": "$" }
+        },
+        {
+          "id": "fldDemoAcct000009",
+          "name": "Payment Terms",
+          "type": "singleSelect",
+          "options": {
+            "choices": [
+              { "id": "selDemoAcct0901", "name": "Prepaid", "color": "blueLight2" },
+              { "id": "selDemoAcct0902", "name": "Net 30", "color": "cyanLight2" },
+              { "id": "selDemoAcct0903", "name": "Net 60", "color": "tealLight2" }
+            ]
+          }
+        },
+        { "id": "fldDemoAcct000010", "name": "Sales Rep", "type": "singleCollaborator", "options": {} },
+        {
+          "id": "fldDemoAcct000011",
+          "name": "Wholesale Orders",
+          "type": "multipleRecordLinks",
+          "options": {
+            "linkedTableId": "tblDemoWOrd000001",
+            "isReversed": false,
+            "prefersSingleRecordLink": false
+          }
+        },
+        {
+          "id": "fldDemoAcct000012",
+          "name": "Lifetime Wholesale",
+          "type": "rollup",
+          "options": {
+            "recordLinkFieldId": "fldDemoAcct000011",
+            "fieldIdInLinkedTable": "fldDemoWOrd000006",
+            "formula": "SUM(values)"
+          }
+        },
+        { "id": "fldDemoAcct000013", "name": "Website", "type": "url" }
+      ]
+    },
+    {
+      "id": "tblDemoWCon000001",
+      "name": "Contacts",
+      "primaryFieldId": "fldDemoWCon000001",
+      "fields": [
+        { "id": "fldDemoWCon000001", "name": "Name", "type": "singleLineText" },
+        { "id": "fldDemoWCon000002", "name": "Email", "type": "email" },
+        { "id": "fldDemoWCon000003", "name": "Phone", "type": "phoneNumber" },
+        {
+          "id": "fldDemoWCon000004",
+          "name": "Role",
+          "type": "singleSelect",
+          "options": {
+            "choices": [
+              { "id": "selDemoWCon0401", "name": "Owner", "color": "blueLight2" },
+              { "id": "selDemoWCon0402", "name": "Buyer", "color": "cyanLight2" },
+              { "id": "selDemoWCon0403", "name": "Store Manager", "color": "tealLight2" }
+            ]
+          }
+        },
+        {
+          "id": "fldDemoWCon000005",
+          "name": "Account",
+          "type": "multipleRecordLinks",
+          "options": {
+            "linkedTableId": "tblDemoAcct000001",
+            "isReversed": false,
+            "prefersSingleRecordLink": false
+          }
+        }
+      ]
+    },
+    {
+      "id": "tblDemoWOrd000001",
+      "name": "Wholesale Orders",
+      "primaryFieldId": "fldDemoWOrd000001",
+      "fields": [
+        { "id": "fldDemoWOrd000001", "name": "WO Number", "type": "singleLineText" },
+        {
+          "id": "fldDemoWOrd000002",
+          "name": "Account",
+          "type": "multipleRecordLinks",
+          "options": {
+            "linkedTableId": "tblDemoAcct000001",
+            "isReversed": false,
+            "prefersSingleRecordLink": false
+          }
+        },
+        {
+          "id": "fldDemoWOrd000003",
+          "name": "Order Date",
+          "type": "date",
+          "options": { "dateFormat": { "name": "us", "format": "M/D/YYYY" } }
+        },
+        {
+          "id": "fldDemoWOrd000004",
+          "name": "Ship By",
+          "type": "date",
+          "options": { "dateFormat": { "name": "us", "format": "M/D/YYYY" } }
+        },
+        {
+          "id": "fldDemoWOrd000005",
+          "name": "Line Items",
+          "type": "multipleRecordLinks",
+          "options": {
+            "linkedTableId": "tblDemoWLin000001",
+            "isReversed": false,
+            "prefersSingleRecordLink": false
+          }
+        },
+        {
+          "id": "fldDemoWOrd000006",
+          "name": "Order Value",
+          "type": "rollup",
+          "options": {
+            "recordLinkFieldId": "fldDemoWOrd000005",
+            "fieldIdInLinkedTable": "fldDemoWLin000007",
+            "formula": "SUM(values)"
+          }
+        },
+        {
+          "id": "fldDemoWOrd000007",
+          "name": "Status",
+          "type": "singleSelect",
+          "options": {
+            "choices": [
+              { "id": "selDemoWOrd0701", "name": "Quote", "color": "blueLight2" },
+              { "id": "selDemoWOrd0702", "name": "Confirmed", "color": "cyanLight2" },
+              { "id": "selDemoWOrd0703", "name": "Picking", "color": "tealLight2" },
+              { "id": "selDemoWOrd0704", "name": "Shipped", "color": "greenLight2" },
+              { "id": "selDemoWOrd0705", "name": "Invoiced", "color": "yellowLight2" }
+            ]
+          }
+        },
+        {
+          "id": "fldDemoWOrd000008",
+          "name": "Invoice Sent",
+          "type": "checkbox",
+          "options": { "icon": "check", "color": "greenBright" }
+        },
+        { "id": "fldDemoWOrd000009", "name": "Contact email", "type": "email" }
+      ]
+    },
+    {
+      "id": "tblDemoWLin000001",
+      "name": "Wholesale Line Items",
+      "primaryFieldId": "fldDemoWLin000001",
+      "fields": [
+        { "id": "fldDemoWLin000001", "name": "Line", "type": "singleLineText" },
+        {
+          "id": "fldDemoWLin000002",
+          "name": "Wholesale Order",
+          "type": "multipleRecordLinks",
+          "options": {
+            "linkedTableId": "tblDemoWOrd000001",
+            "isReversed": false,
+            "prefersSingleRecordLink": false
+          }
+        },
+        {
+          "id": "fldDemoWLin000003",
+          "name": "Product",
+          "type": "multipleRecordLinks",
+          "options": {
+            "linkedTableId": "tblDemoWCat000001",
+            "isReversed": false,
+            "prefersSingleRecordLink": false
+          }
+        },
+        { "id": "fldDemoWLin000004", "name": "Cases", "type": "number", "options": { "precision": 0 } },
+        {
+          "id": "fldDemoWLin000005",
+          "name": "Units per Case",
+          "type": "number",
+          "options": { "precision": 0 }
+        },
+        {
+          "id": "fldDemoWLin000006",
+          "name": "Case Price",
+          "type": "currency",
+          "options": { "precision": 2, "symbol": "$" }
+        },
+        {
+          "id": "fldDemoWLin000007",
+          "name": "Line Total",
+          "type": "formula",
+          "options": { "formula": "{Cases} * {Case Price}", "result": { "type": "currency" } }
+        }
+      ]
+    },
+    {
+      "id": "tblDemoWCat000001",
+      "name": "Wholesale Catalog",
+      "primaryFieldId": "fldDemoWCat000001",
+      "syncSource": { "sourceApplicationId": "appDemoProduct001", "sourceTableId": "tblDemoProd000001" },
+      "fields": [
+        { "id": "fldDemoWCat000001", "name": "Product Name", "type": "singleLineText" },
+        { "id": "fldDemoWCat000002", "name": "SKU", "type": "singleLineText" },
+        {
+          "id": "fldDemoWCat000003",
+          "name": "Wholesale Price",
+          "type": "currency",
+          "options": { "precision": 2, "symbol": "$" }
+        },
+        {
+          "id": "fldDemoWCat000004",
+          "name": "Status",
+          "type": "singleSelect",
+          "options": {
+            "choices": [
+              { "id": "selDemoWCat0401", "name": "Active", "color": "blueLight2" },
+              { "id": "selDemoWCat0402", "name": "Draft", "color": "cyanLight2" },
+              { "id": "selDemoWCat0403", "name": "Seasonal", "color": "tealLight2" },
+              { "id": "selDemoWCat0404", "name": "Discontinued", "color": "greenLight2" }
+            ]
+          }
+        },
+        {
+          "id": "fldDemoWCat000005",
+          "name": "Product Photos",
+          "type": "multipleAttachments",
+          "options": { "isReversed": false }
+        },
+        { "id": "fldDemoWCat000006", "name": "Case Pack", "type": "number", "options": { "precision": 0 } }
+      ]
+    }
+  ]
+}

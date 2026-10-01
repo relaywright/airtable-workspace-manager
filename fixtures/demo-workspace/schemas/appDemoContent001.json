@@ -1,0 +1,223 @@
+{
+  "tables": [
+    {
+      "id": "tblDemoShot000001",
+      "name": "Shoots",
+      "primaryFieldId": "fldDemoShot000001",
+      "fields": [
+        { "id": "fldDemoShot000001", "name": "Shoot Name", "type": "singleLineText" },
+        {
+          "id": "fldDemoShot000002",
+          "name": "Shoot Date",
+          "type": "date",
+          "options": { "dateFormat": { "name": "us", "format": "M/D/YYYY" } }
+        },
+        { "id": "fldDemoShot000003", "name": "Location", "type": "singleLineText" },
+        { "id": "fldDemoShot000004", "name": "photographer_name", "type": "singleLineText" },
+        {
+          "id": "fldDemoShot000005",
+          "name": "Shot List",
+          "type": "multipleRecordLinks",
+          "options": {
+            "linkedTableId": "tblDemoSLst000001",
+            "isReversed": false,
+            "prefersSingleRecordLink": false
+          }
+        },
+        {
+          "id": "fldDemoShot000006",
+          "name": "Budget",
+          "type": "currency",
+          "options": { "precision": 2, "symbol": "$" }
+        },
+        {
+          "id": "fldDemoShot000007",
+          "name": "Status",
+          "type": "singleSelect",
+          "options": {
+            "choices": [
+              { "id": "selDemoShot0701", "name": "Planning", "color": "blueLight2" },
+              { "id": "selDemoShot0702", "name": "Booked", "color": "cyanLight2" },
+              { "id": "selDemoShot0703", "name": "Shot", "color": "tealLight2" },
+              { "id": "selDemoShot0704", "name": "Delivered", "color": "greenLight2" }
+            ]
+          }
+        },
+        {
+          "id": "fldDemoShot000008",
+          "name": "Moodboard",
+          "type": "multipleAttachments",
+          "options": { "isReversed": false }
+        }
+      ]
+    },
+    {
+      "id": "tblDemoSLst000001",
+      "name": "Shot List",
+      "primaryFieldId": "fldDemoSLst000001",
+      "fields": [
+        { "id": "fldDemoSLst000001", "name": "Shot", "type": "singleLineText" },
+        {
+          "id": "fldDemoSLst000002",
+          "name": "Shoot",
+          "type": "multipleRecordLinks",
+          "options": {
+            "linkedTableId": "tblDemoShot000001",
+            "isReversed": false,
+            "prefersSingleRecordLink": false
+          }
+        },
+        {
+          "id": "fldDemoSLst000003",
+          "name": "Product",
+          "type": "multipleRecordLinks",
+          "options": {
+            "linkedTableId": "tblDemoProd000001",
+            "isReversed": false,
+            "prefersSingleRecordLink": false
+          }
+        },
+        {
+          "id": "fldDemoSLst000004",
+          "name": "Shot Type",
+          "type": "singleSelect",
+          "options": {
+            "choices": [
+              { "id": "selDemoSLst0401", "name": "Hero", "color": "blueLight2" },
+              { "id": "selDemoSLst0402", "name": "Lifestyle", "color": "cyanLight2" },
+              { "id": "selDemoSLst0403", "name": "Detail", "color": "tealLight2" },
+              { "id": "selDemoSLst0404", "name": "Flat Lay", "color": "greenLight2" },
+              { "id": "selDemoSLst0405", "name": "Video", "color": "yellowLight2" }
+            ]
+          }
+        },
+        {
+          "id": "fldDemoSLst000005",
+          "name": "Done",
+          "type": "checkbox",
+          "options": { "icon": "check", "color": "greenBright" }
+        },
+        {
+          "id": "fldDemoSLst000006",
+          "name": "Final Asset",
+          "type": "multipleRecordLinks",
+          "options": {
+            "linkedTableId": "tblDemoAsst000001",
+            "isReversed": false,
+            "prefersSingleRecordLink": false
+          }
+        }
+      ]
+    },
+    {
+      "id": "tblDemoAsst000001",
+      "name": "Assets",
+      "primaryFieldId": "fldDemoAsst000001",
+      "fields": [
+        { "id": "fldDemoAsst000001", "name": "Asset Name", "type": "singleLineText" },
+        {
+          "id": "fldDemoAsst000002",
+          "name": "File",
+          "type": "multipleAttachments",
+          "options": { "isReversed": false }
+        },
+        {
+          "id": "fldDemoAsst000003",
+          "name": "Asset Type",
+          "type": "singleSelect",
+          "options": {
+            "choices": [
+              { "id": "selDemoAsst0301", "name": "Photo", "color": "blueLight2" },
+              { "id": "selDemoAsst0302", "name": "Video", "color": "cyanLight2" },
+              { "id": "selDemoAsst0303", "name": "GIF", "color": "tealLight2" }
+            ]
+          }
+        },
+        {
+          "id": "fldDemoAsst000004",
+          "name": "Usage Rights",
+          "type": "singleSelect",
+          "options": {
+            "choices": [
+              { "id": "selDemoAsst0401", "name": "Owned", "color": "blueLight2" },
+              { "id": "selDemoAsst0402", "name": "Licensed 1 Year", "color": "cyanLight2" },
+              { "id": "selDemoAsst0403", "name": "Creator Owned", "color": "tealLight2" }
+            ]
+          }
+        },
+        {
+          "id": "fldDemoAsst000005",
+          "name": "Channels",
+          "type": "multipleSelects",
+          "options": {
+            "choices": [
+              { "id": "selDemoAsst0501", "name": "Web Store", "color": "blueLight2" },
+              { "id": "selDemoAsst0502", "name": "Instagram", "color": "cyanLight2" },
+              { "id": "selDemoAsst0503", "name": "Pinterest", "color": "tealLight2" },
+              { "id": "selDemoAsst0504", "name": "Email", "color": "greenLight2" },
+              { "id": "selDemoAsst0505", "name": "Wholesale Line Sheet", "color": "yellowLight2" }
+            ]
+          }
+        },
+        {
+          "id": "fldDemoAsst000006",
+          "name": "Approved",
+          "type": "checkbox",
+          "options": { "icon": "check", "color": "greenBright" }
+        },
+        {
+          "id": "fldDemoAsst000007",
+          "name": "Video Length",
+          "type": "duration",
+          "options": { "durationFormat": "h:mm:ss" }
+        },
+        {
+          "id": "fldDemoAsst000008",
+          "name": "Uploaded",
+          "type": "createdTime",
+          "options": {
+            "result": {
+              "type": "dateTime",
+              "options": {
+                "dateFormat": { "name": "us", "format": "M/D/YYYY" },
+                "timeFormat": { "name": "12hour", "format": "h:mma" },
+                "timeZone": "America/Los_Angeles"
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "tblDemoLic0000001",
+      "name": "Usage Licenses",
+      "primaryFieldId": "fldDemoLic0000001",
+      "fields": [
+        { "id": "fldDemoLic0000001", "name": "License", "type": "singleLineText" },
+        {
+          "id": "fldDemoLic0000002",
+          "name": "Asset",
+          "type": "multipleRecordLinks",
+          "options": {
+            "linkedTableId": "tblDemoAsst000001",
+            "isReversed": false,
+            "prefersSingleRecordLink": false
+          }
+        },
+        { "id": "fldDemoLic0000003", "name": "Licensor", "type": "singleLineText" },
+        {
+          "id": "fldDemoLic0000004",
+          "name": "Expires",
+          "type": "date",
+          "options": { "dateFormat": { "name": "us", "format": "M/D/YYYY" } }
+        },
+        {
+          "id": "fldDemoLic0000005",
+          "name": "Fee",
+          "type": "currency",
+          "options": { "precision": 2, "symbol": "$" }
+        }
+      ]
+    }
+  ]
+}

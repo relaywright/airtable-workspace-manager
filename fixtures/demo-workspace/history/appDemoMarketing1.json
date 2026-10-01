@@ -1,0 +1,98 @@
+{
+  "changes": [
+    {
+      "daysAgo": 48,
+      "summary": "Retired the Partners table after creator work moved to its own base",
+      "edits": [
+        {
+          "op": "removeTable",
+          "table": {
+            "id": "tblDemoPtnM000001",
+            "name": "Partners",
+            "primaryFieldId": "fldDemoPtnM000001",
+            "fields": [
+              { "id": "fldDemoPtnM000001", "name": "Partner Name", "type": "singleLineText" },
+              { "id": "fldDemoPtnM000002", "name": "Contact Email", "type": "email" },
+              { "id": "fldDemoPtnM000003", "name": "Phone", "type": "singleLineText" },
+              {
+                "id": "fldDemoPtnM000004",
+                "name": "Category",
+                "type": "singleSelect",
+                "options": {
+                  "choices": [
+                    { "id": "selDemoPtnM0401", "name": "Sponsor", "color": "blueLight2" },
+                    { "id": "selDemoPtnM0402", "name": "Influencer", "color": "cyanLight2" },
+                    { "id": "selDemoPtnM0403", "name": "Media", "color": "tealLight2" },
+                    { "id": "selDemoPtnM0404", "name": "Vendor", "color": "greenLight2" }
+                  ]
+                }
+              },
+              {
+                "id": "fldDemoPtnM000005",
+                "name": "Linked Campaigns",
+                "type": "multipleRecordLinks",
+                "options": {
+                  "linkedTableId": "tblDemoCamp000001",
+                  "isReversed": false,
+                  "prefersSingleRecordLink": false
+                }
+              },
+              {
+                "id": "fldDemoPtnM000006",
+                "name": "Contract Start",
+                "type": "date",
+                "options": { "dateFormat": { "name": "us", "format": "M/D/YYYY" } }
+              }
+            ]
+          }
+        },
+        {
+          "op": "removeField",
+          "tableId": "tblDemoCamp000001",
+          "field": {
+            "id": "fldDemoCamp000014",
+            "name": "Partner",
+            "type": "multipleRecordLinks",
+            "options": {
+              "linkedTableId": "tblDemoPtnM000001",
+              "isReversed": false,
+              "prefersSingleRecordLink": false
+            }
+          }
+        }
+      ]
+    },
+    {
+      "daysAgo": 33,
+      "summary": "Added an Email Sends table",
+      "edits": [{ "op": "addTable", "tableId": "tblDemoMail000001" }]
+    },
+    {
+      "daysAgo": 19,
+      "summary": "Campaigns can now run on more than one channel",
+      "edits": [
+        {
+          "op": "modifyField",
+          "fieldId": "fldDemoCamp000006",
+          "from": {
+            "type": "singleSelect",
+            "options": {
+              "choices": [
+                { "id": "selDemoCamp0601", "name": "Email", "color": "blueLight2" },
+                { "id": "selDemoCamp0602", "name": "Instagram", "color": "cyanLight2" },
+                { "id": "selDemoCamp0603", "name": "Pinterest", "color": "tealLight2" },
+                { "id": "selDemoCamp0604", "name": "Paid Search", "color": "greenLight2" },
+                { "id": "selDemoCamp0605", "name": "In-Store", "color": "yellowLight2" }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "daysAgo": 6,
+      "summary": "Renamed Title to Post Title in the Content Calendar",
+      "edits": [{ "op": "modifyField", "fieldId": "fldDemoPost000001", "from": { "name": "Title" } }]
+    }
+  ]
+}

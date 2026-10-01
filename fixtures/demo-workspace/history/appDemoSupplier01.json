@@ -1,0 +1,32 @@
+{
+  "changes": [
+    {
+      "daysAgo": 50,
+      "summary": "Renamed Partners to Suppliers",
+      "edits": [{ "op": "renameTable", "tableId": "tblDemoSupp000001", "from": "Partners" }]
+    },
+    {
+      "daysAgo": 29,
+      "summary": "Added a Quality Rating for suppliers",
+      "edits": [{ "op": "addField", "fieldId": "fldDemoSupp000011" }]
+    },
+    {
+      "daysAgo": 8,
+      "summary": "Added Net 60 payment terms",
+      "edits": [
+        {
+          "op": "modifyField",
+          "fieldId": "fldDemoSupp000007",
+          "from": {
+            "options": {
+              "choices": [
+                { "id": "selDemoSupp0701", "name": "Net 30", "color": "blueLight2" },
+                { "id": "selDemoSupp0702", "name": "Net 45", "color": "cyanLight2" }
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

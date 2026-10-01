@@ -1,0 +1,284 @@
+{
+  "tables": [
+    {
+      "id": "tblDemoTeam000001",
+      "name": "Team Directory",
+      "primaryFieldId": "fldDemoTeam000001",
+      "fields": [
+        { "id": "fldDemoTeam000001", "name": "Name", "type": "singleLineText" },
+        { "id": "fldDemoTeam000002", "name": "Job Title", "type": "singleLineText" },
+        {
+          "id": "fldDemoTeam000003",
+          "name": "Department",
+          "type": "singleSelect",
+          "options": {
+            "choices": [
+              { "id": "selDemoTeam0301", "name": "Operations", "color": "blueLight2" },
+              { "id": "selDemoTeam0302", "name": "Marketing", "color": "cyanLight2" },
+              { "id": "selDemoTeam0303", "name": "Retail", "color": "tealLight2" },
+              { "id": "selDemoTeam0304", "name": "Wholesale", "color": "greenLight2" },
+              { "id": "selDemoTeam0305", "name": "Finance", "color": "yellowLight2" },
+              { "id": "selDemoTeam0306", "name": "Product", "color": "orangeLight2" }
+            ]
+          }
+        },
+        { "id": "fldDemoTeam000004", "name": "Work Email", "type": "email" },
+        { "id": "fldDemoTeam000005", "name": "Phone", "type": "phoneNumber" },
+        {
+          "id": "fldDemoTeam000006",
+          "name": "Start Date",
+          "type": "date",
+          "options": { "dateFormat": { "name": "us", "format": "M/D/YYYY" } }
+        },
+        {
+          "id": "fldDemoTeam000007",
+          "name": "Manager",
+          "type": "multipleRecordLinks",
+          "options": {
+            "linkedTableId": "tblDemoTeam000001",
+            "isReversed": false,
+            "prefersSingleRecordLink": false
+          }
+        },
+        {
+          "id": "fldDemoTeam000008",
+          "name": "Location",
+          "type": "singleSelect",
+          "options": {
+            "choices": [
+              { "id": "selDemoTeam0801", "name": "HQ", "color": "blueLight2" },
+              { "id": "selDemoTeam0802", "name": "Downtown Store", "color": "cyanLight2" },
+              { "id": "selDemoTeam0803", "name": "Riverside Store", "color": "tealLight2" },
+              { "id": "selDemoTeam0804", "name": "Warehouse", "color": "greenLight2" }
+            ]
+          }
+        },
+        { "id": "fldDemoTeam000009", "name": "Employee ID", "type": "autoNumber" },
+        {
+          "id": "fldDemoTeam000010",
+          "name": "Photo",
+          "type": "multipleAttachments",
+          "options": { "isReversed": false }
+        }
+      ]
+    },
+    {
+      "id": "tblDemoRole000001",
+      "name": "Open Roles",
+      "primaryFieldId": "fldDemoRole000001",
+      "fields": [
+        { "id": "fldDemoRole000001", "name": "Role Title", "type": "singleLineText" },
+        {
+          "id": "fldDemoRole000002",
+          "name": "Department",
+          "type": "singleSelect",
+          "options": {
+            "choices": [
+              { "id": "selDemoRole0201", "name": "Operations", "color": "blueLight2" },
+              { "id": "selDemoRole0202", "name": "Marketing", "color": "cyanLight2" },
+              { "id": "selDemoRole0203", "name": "Retail", "color": "tealLight2" },
+              { "id": "selDemoRole0204", "name": "Wholesale", "color": "greenLight2" },
+              { "id": "selDemoRole0205", "name": "Finance", "color": "yellowLight2" },
+              { "id": "selDemoRole0206", "name": "Product", "color": "orangeLight2" }
+            ]
+          }
+        },
+        { "id": "fldDemoRole000003", "name": "Hiring Manager", "type": "singleCollaborator", "options": {} },
+        {
+          "id": "fldDemoRole000004",
+          "name": "Status",
+          "type": "singleSelect",
+          "options": {
+            "choices": [
+              { "id": "selDemoRole0401", "name": "Draft", "color": "blueLight2" },
+              { "id": "selDemoRole0402", "name": "Open", "color": "cyanLight2" },
+              { "id": "selDemoRole0403", "name": "Interviewing", "color": "tealLight2" },
+              { "id": "selDemoRole0404", "name": "Filled", "color": "greenLight2" },
+              { "id": "selDemoRole0405", "name": "On Hold", "color": "yellowLight2" }
+            ]
+          }
+        },
+        {
+          "id": "fldDemoRole000005",
+          "name": "Posted",
+          "type": "date",
+          "options": { "dateFormat": { "name": "us", "format": "M/D/YYYY" } }
+        },
+        { "id": "fldDemoRole000006", "name": "Salary Range", "type": "singleLineText" },
+        {
+          "id": "fldDemoRole000007",
+          "name": "Candidates",
+          "type": "multipleRecordLinks",
+          "options": {
+            "linkedTableId": "tblDemoCand000001",
+            "isReversed": false,
+            "prefersSingleRecordLink": false
+          }
+        },
+        {
+          "id": "fldDemoRole000008",
+          "name": "Candidate Count",
+          "type": "count",
+          "options": { "isValid": true, "recordLinkFieldId": "fldDemoRole000007" }
+        }
+      ]
+    },
+    {
+      "id": "tblDemoCand000001",
+      "name": "Candidates",
+      "primaryFieldId": "fldDemoCand000001",
+      "fields": [
+        { "id": "fldDemoCand000001", "name": "Candidate Name", "type": "singleLineText" },
+        { "id": "fldDemoCand000002", "name": "Email", "type": "email" },
+        { "id": "fldDemoCand000003", "name": "Phone", "type": "phoneNumber" },
+        {
+          "id": "fldDemoCand000004",
+          "name": "Role",
+          "type": "multipleRecordLinks",
+          "options": {
+            "linkedTableId": "tblDemoRole000001",
+            "isReversed": false,
+            "prefersSingleRecordLink": false
+          }
+        },
+        {
+          "id": "fldDemoCand000005",
+          "name": "Stage",
+          "type": "singleSelect",
+          "options": {
+            "choices": [
+              { "id": "selDemoCand0501", "name": "Applied", "color": "blueLight2" },
+              { "id": "selDemoCand0502", "name": "Phone Screen", "color": "cyanLight2" },
+              { "id": "selDemoCand0503", "name": "Interview", "color": "tealLight2" },
+              { "id": "selDemoCand0504", "name": "Offer", "color": "greenLight2" },
+              { "id": "selDemoCand0505", "name": "Hired", "color": "yellowLight2" },
+              { "id": "selDemoCand0506", "name": "Rejected", "color": "orangeLight2" }
+            ]
+          }
+        },
+        {
+          "id": "fldDemoCand000006",
+          "name": "Resume",
+          "type": "multipleAttachments",
+          "options": { "isReversed": false }
+        },
+        {
+          "id": "fldDemoCand000007",
+          "name": "Rating",
+          "type": "rating",
+          "options": { "icon": "star", "max": 5, "color": "yellowBright" }
+        },
+        {
+          "id": "fldDemoCand000008",
+          "name": "Source",
+          "type": "singleSelect",
+          "options": {
+            "choices": [
+              { "id": "selDemoCand0801", "name": "Job Board", "color": "blueLight2" },
+              { "id": "selDemoCand0802", "name": "Referral", "color": "cyanLight2" },
+              { "id": "selDemoCand0803", "name": "Walk-In", "color": "tealLight2" }
+            ]
+          }
+        },
+        {
+          "id": "fldDemoCand000009",
+          "name": "Applied",
+          "type": "createdTime",
+          "options": {
+            "result": {
+              "type": "dateTime",
+              "options": {
+                "dateFormat": { "name": "us", "format": "M/D/YYYY" },
+                "timeFormat": { "name": "12hour", "format": "h:mma" },
+                "timeZone": "America/Los_Angeles"
+              }
+            }
+          }
+        },
+        {
+          "id": "fldDemoCand000010",
+          "name": "Interviews",
+          "type": "multipleRecordLinks",
+          "options": {
+            "linkedTableId": "tblDemoIntv000001",
+            "isReversed": false,
+            "prefersSingleRecordLink": false
+          }
+        }
+      ]
+    },
+    {
+      "id": "tblDemoIntv000001",
+      "name": "Interviews",
+      "primaryFieldId": "fldDemoIntv000001",
+      "fields": [
+        { "id": "fldDemoIntv000001", "name": "Interview", "type": "singleLineText" },
+        {
+          "id": "fldDemoIntv000002",
+          "name": "Candidate",
+          "type": "multipleRecordLinks",
+          "options": {
+            "linkedTableId": "tblDemoCand000001",
+            "isReversed": false,
+            "prefersSingleRecordLink": false
+          }
+        },
+        { "id": "fldDemoIntv000003", "name": "Interviewers", "type": "multipleCollaborators", "options": {} },
+        {
+          "id": "fldDemoIntv000004",
+          "name": "Scheduled",
+          "type": "dateTime",
+          "options": {
+            "dateFormat": { "name": "us", "format": "M/D/YYYY" },
+            "timeFormat": { "name": "12hour", "format": "h:mma" },
+            "timeZone": "America/Los_Angeles"
+          }
+        },
+        { "id": "fldDemoIntv000005", "name": "Scorecard", "type": "multilineText" },
+        {
+          "id": "fldDemoIntv000006",
+          "name": "Recommendation",
+          "type": "singleSelect",
+          "options": {
+            "choices": [
+              { "id": "selDemoIntv0601", "name": "Strong Yes", "color": "blueLight2" },
+              { "id": "selDemoIntv0602", "name": "Yes", "color": "cyanLight2" },
+              { "id": "selDemoIntv0603", "name": "No", "color": "tealLight2" }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "tblDemoOnbd000001",
+      "name": "Onboarding Tasks",
+      "primaryFieldId": "fldDemoOnbd000001",
+      "fields": [
+        { "id": "fldDemoOnbd000001", "name": "Task", "type": "singleLineText" },
+        {
+          "id": "fldDemoOnbd000002",
+          "name": "New Hire",
+          "type": "multipleRecordLinks",
+          "options": {
+            "linkedTableId": "tblDemoTeam000001",
+            "isReversed": false,
+            "prefersSingleRecordLink": false
+          }
+        },
+        {
+          "id": "fldDemoOnbd000003",
+          "name": "Due",
+          "type": "date",
+          "options": { "dateFormat": { "name": "us", "format": "M/D/YYYY" } }
+        },
+        {
+          "id": "fldDemoOnbd000004",
+          "name": "Done",
+          "type": "checkbox",
+          "options": { "icon": "check", "color": "greenBright" }
+        },
+        { "id": "fldDemoOnbd000005", "name": "Owner", "type": "singleCollaborator", "options": {} }
+      ]
+    }
+  ]
+}

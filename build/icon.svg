@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024" role="img" aria-labelledby="icon-title">
+  <title id="icon-title">Airtable Workspace Manager</title>
+  <defs>
+    <linearGradient id="tile" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1a1a2e"/>
+      <stop offset="1" stop-color="#0f0f1a"/>
+    </linearGradient>
+  </defs>
+  <!-- 824px tile centered on the 1024 canvas, matching the macOS icon grid -->
+  <g transform="translate(100 100) scale(0.8046875)">
+    <rect width="1024" height="1024" rx="224" fill="url(#tile)"/>
+    <rect x="192" y="208" width="512" height="176" rx="56" fill="#e2e8f0"/>
+    <rect x="256" y="424" width="512" height="176" rx="56" fill="#e2e8f0"/>
+    <rect x="320" y="640" width="512" height="176" rx="56" fill="#e2e8f0"/>
+    <path d="M416 280 V448 Q416 512 480 512 H544 Q608 512 608 576 V744" fill="none" stroke="#6366f1" stroke-width="72" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+</svg>

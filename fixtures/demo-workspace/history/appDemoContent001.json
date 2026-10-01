@@ -1,0 +1,9 @@
+{
+  "changes": [
+    {
+      "daysAgo": 7,
+      "summary": "Added a Usage Licenses table",
+      "edits": [{ "op": "addTable", "tableId": "tblDemoLic0000001" }]
+    }
+  ]
+}

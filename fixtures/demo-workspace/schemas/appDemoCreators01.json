@@ -1,0 +1,232 @@
+{
+  "tables": [
+    {
+      "id": "tblDemoCrtr000001",
+      "name": "Creators",
+      "primaryFieldId": "fldDemoCrtr000001",
+      "fields": [
+        { "id": "fldDemoCrtr000001", "name": "Creator Name", "type": "singleLineText" },
+        { "id": "fldDemoCrtr000002", "name": "Handle", "type": "singleLineText" },
+        {
+          "id": "fldDemoCrtr000003",
+          "name": "Platform",
+          "type": "singleSelect",
+          "options": {
+            "choices": [
+              { "id": "selDemoCrtr0301", "name": "Instagram", "color": "blueLight2" },
+              { "id": "selDemoCrtr0302", "name": "TikTok", "color": "cyanLight2" },
+              { "id": "selDemoCrtr0303", "name": "YouTube", "color": "tealLight2" },
+              { "id": "selDemoCrtr0304", "name": "Pinterest", "color": "greenLight2" },
+              { "id": "selDemoCrtr0305", "name": "Blog", "color": "yellowLight2" }
+            ]
+          }
+        },
+        { "id": "fldDemoCrtr000004", "name": "Followers", "type": "number", "options": { "precision": 0 } },
+        {
+          "id": "fldDemoCrtr000005",
+          "name": "Engagement Rate",
+          "type": "percent",
+          "options": { "precision": 1 }
+        },
+        { "id": "fldDemoCrtr000006", "name": "Email", "type": "email" },
+        {
+          "id": "fldDemoCrtr000007",
+          "name": "Rate per Post",
+          "type": "currency",
+          "options": { "precision": 2, "symbol": "$" }
+        },
+        {
+          "id": "fldDemoCrtr000008",
+          "name": "Status",
+          "type": "singleSelect",
+          "options": {
+            "choices": [
+              { "id": "selDemoCrtr0801", "name": "Prospect", "color": "blueLight2" },
+              { "id": "selDemoCrtr0802", "name": "Contacted", "color": "cyanLight2" },
+              { "id": "selDemoCrtr0803", "name": "Active", "color": "tealLight2" },
+              { "id": "selDemoCrtr0804", "name": "Paused", "color": "greenLight2" }
+            ]
+          }
+        },
+        {
+          "id": "fldDemoCrtr000009",
+          "name": "Collaborations",
+          "type": "multipleRecordLinks",
+          "options": {
+            "linkedTableId": "tblDemoColb000001",
+            "isReversed": false,
+            "prefersSingleRecordLink": false
+          }
+        },
+        { "id": "fldDemoCrtr000010", "name": "Profile URL", "type": "url" },
+        {
+          "id": "fldDemoCrtr000011",
+          "name": "Fit Score",
+          "type": "rating",
+          "options": { "icon": "star", "max": 5, "color": "yellowBright" }
+        }
+      ]
+    },
+    {
+      "id": "tblDemoColb000001",
+      "name": "Collaborations",
+      "primaryFieldId": "fldDemoColb000001",
+      "fields": [
+        { "id": "fldDemoColb000001", "name": "Collab", "type": "singleLineText" },
+        {
+          "id": "fldDemoColb000002",
+          "name": "Creator",
+          "type": "multipleRecordLinks",
+          "options": {
+            "linkedTableId": "tblDemoCrtr000001",
+            "isReversed": false,
+            "prefersSingleRecordLink": false
+          }
+        },
+        { "id": "fldDemoColb000003", "name": "Campaign", "type": "singleLineText" },
+        {
+          "id": "fldDemoColb000004",
+          "name": "Deliverables",
+          "type": "multipleSelects",
+          "options": {
+            "choices": [
+              { "id": "selDemoColb0401", "name": "Reel", "color": "blueLight2" },
+              { "id": "selDemoColb0402", "name": "Story", "color": "cyanLight2" },
+              { "id": "selDemoColb0403", "name": "Post", "color": "tealLight2" },
+              { "id": "selDemoColb0404", "name": "Blog Review", "color": "greenLight2" },
+              { "id": "selDemoColb0405", "name": "Video", "color": "yellowLight2" }
+            ]
+          }
+        },
+        {
+          "id": "fldDemoColb000005",
+          "name": "Fee",
+          "type": "currency",
+          "options": { "precision": 2, "symbol": "$" }
+        },
+        {
+          "id": "fldDemoColb000006",
+          "name": "Go Live Date",
+          "type": "date",
+          "options": { "dateFormat": { "name": "us", "format": "M/D/YYYY" } }
+        },
+        {
+          "id": "fldDemoColb000007",
+          "name": "Status",
+          "type": "singleSelect",
+          "options": {
+            "choices": [
+              { "id": "selDemoColb0701", "name": "Negotiating", "color": "blueLight2" },
+              { "id": "selDemoColb0702", "name": "Confirmed", "color": "cyanLight2" },
+              { "id": "selDemoColb0703", "name": "Live", "color": "tealLight2" },
+              { "id": "selDemoColb0704", "name": "Paid", "color": "greenLight2" }
+            ]
+          }
+        },
+        { "id": "fldDemoColb000008", "name": "Content Link", "type": "url" },
+        { "id": "fldDemoColb000009", "name": "Performance Notes", "type": "multilineText" }
+      ]
+    },
+    {
+      "id": "tblDemoSeed000001",
+      "name": "Product Seeding",
+      "primaryFieldId": "fldDemoSeed000001",
+      "fields": [
+        { "id": "fldDemoSeed000001", "name": "Shipment", "type": "singleLineText" },
+        {
+          "id": "fldDemoSeed000002",
+          "name": "Creator",
+          "type": "multipleRecordLinks",
+          "options": {
+            "linkedTableId": "tblDemoCrtr000001",
+            "isReversed": false,
+            "prefersSingleRecordLink": false
+          }
+        },
+        {
+          "id": "fldDemoSeed000003",
+          "name": "Product",
+          "type": "multipleRecordLinks",
+          "options": {
+            "linkedTableId": "tblDemoProd000001",
+            "isReversed": false,
+            "prefersSingleRecordLink": false
+          }
+        },
+        {
+          "id": "fldDemoSeed000004",
+          "name": "Sent On",
+          "type": "date",
+          "options": { "dateFormat": { "name": "us", "format": "M/D/YYYY" } }
+        },
+        {
+          "id": "fldDemoSeed000005",
+          "name": "Received",
+          "type": "checkbox",
+          "options": { "icon": "check", "color": "greenBright" }
+        },
+        {
+          "id": "fldDemoSeed000006",
+          "name": "Posted",
+          "type": "checkbox",
+          "options": { "icon": "check", "color": "greenBright" }
+        },
+        { "id": "fldDemoSeed000007", "name": "Tracking Number", "type": "singleLineText" }
+      ]
+    },
+    {
+      "id": "tblDemoCntr000001",
+      "name": "Contracts",
+      "primaryFieldId": "fldDemoCntr000001",
+      "fields": [
+        { "id": "fldDemoCntr000001", "name": "Contract", "type": "singleLineText" },
+        {
+          "id": "fldDemoCntr000002",
+          "name": "Creator",
+          "type": "multipleRecordLinks",
+          "options": {
+            "linkedTableId": "tblDemoCrtr000001",
+            "isReversed": false,
+            "prefersSingleRecordLink": false
+          }
+        },
+        {
+          "id": "fldDemoCntr000003",
+          "name": "Signed",
+          "type": "checkbox",
+          "options": { "icon": "check", "color": "greenBright" }
+        },
+        {
+          "id": "fldDemoCntr000004",
+          "name": "Start",
+          "type": "date",
+          "options": { "dateFormat": { "name": "us", "format": "M/D/YYYY" } }
+        },
+        {
+          "id": "fldDemoCntr000005",
+          "name": "End",
+          "type": "date",
+          "options": { "dateFormat": { "name": "us", "format": "M/D/YYYY" } }
+        },
+        {
+          "id": "fldDemoCntr000006",
+          "name": "Usage Rights",
+          "type": "singleSelect",
+          "options": {
+            "choices": [
+              { "id": "selDemoCntr0601", "name": "Organic Only", "color": "blueLight2" },
+              { "id": "selDemoCntr0602", "name": "Paid Ads 6 Months", "color": "cyanLight2" },
+              { "id": "selDemoCntr0603", "name": "Perpetual", "color": "tealLight2" }
+            ]
+          }
+        },
+        {
+          "id": "fldDemoCntr000007",
+          "name": "Contract PDF",
+          "type": "multipleAttachments",
+          "options": { "isReversed": false }
+        }
+      ]
+    }
+  ]
+}

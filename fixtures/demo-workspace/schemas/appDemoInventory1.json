@@ -1,0 +1,211 @@
+{
+  "tables": [
+    {
+      "id": "tblDemoISku000001",
+      "name": "SKU List",
+      "primaryFieldId": "fldDemoISku000001",
+      "syncSource": { "sourceApplicationId": "appDemoProduct001", "sourceTableId": "tblDemoProd000001" },
+      "fields": [
+        { "id": "fldDemoISku000001", "name": "Product Name", "type": "singleLineText" },
+        { "id": "fldDemoISku000002", "name": "SKU", "type": "singleLineText" },
+        { "id": "fldDemoISku000003", "name": "Barcode", "type": "barcode" },
+        { "id": "fldDemoISku000004", "name": "Weight (lb)", "type": "number", "options": { "precision": 1 } },
+        {
+          "id": "fldDemoISku000005",
+          "name": "Status",
+          "type": "singleSelect",
+          "options": {
+            "choices": [
+              { "id": "selDemoISku0501", "name": "Active", "color": "blueLight2" },
+              { "id": "selDemoISku0502", "name": "Draft", "color": "cyanLight2" },
+              { "id": "selDemoISku0503", "name": "Seasonal", "color": "tealLight2" },
+              { "id": "selDemoISku0504", "name": "Discontinued", "color": "greenLight2" }
+            ]
+          }
+        },
+        {
+          "id": "fldDemoISku000006",
+          "name": "Stock Levels",
+          "type": "multipleRecordLinks",
+          "options": {
+            "linkedTableId": "tblDemoStck000001",
+            "isReversed": false,
+            "prefersSingleRecordLink": false
+          }
+        },
+        {
+          "id": "fldDemoISku000007",
+          "name": "On Hand Total",
+          "type": "rollup",
+          "options": {
+            "recordLinkFieldId": "fldDemoISku000006",
+            "fieldIdInLinkedTable": "fldDemoStck000004",
+            "formula": "SUM(values)"
+          }
+        },
+        {
+          "id": "fldDemoISku000008",
+          "name": "Reorder Point",
+          "type": "number",
+          "options": { "precision": 0 }
+        },
+        {
+          "id": "fldDemoISku000009",
+          "name": "Needs Reorder",
+          "type": "formula",
+          "options": { "formula": "{On Hand Total} <= {Reorder Point}", "result": { "type": "number" } }
+        }
+      ]
+    },
+    {
+      "id": "tblDemoStck000001",
+      "name": "Stock Levels",
+      "primaryFieldId": "fldDemoStck000001",
+      "fields": [
+        { "id": "fldDemoStck000001", "name": "Stock ID", "type": "singleLineText" },
+        {
+          "id": "fldDemoStck000002",
+          "name": "SKU",
+          "type": "multipleRecordLinks",
+          "options": {
+            "linkedTableId": "tblDemoISku000001",
+            "isReversed": false,
+            "prefersSingleRecordLink": false
+          }
+        },
+        {
+          "id": "fldDemoStck000003",
+          "name": "Location",
+          "type": "multipleRecordLinks",
+          "options": {
+            "linkedTableId": "tblDemoLocs000001",
+            "isReversed": false,
+            "prefersSingleRecordLink": false
+          }
+        },
+        { "id": "fldDemoStck000004", "name": "Qty On Hand", "type": "number", "options": { "precision": 0 } },
+        {
+          "id": "fldDemoStck000005",
+          "name": "Qty Reserved",
+          "type": "number",
+          "options": { "precision": 0 }
+        },
+        {
+          "id": "fldDemoStck000006",
+          "name": "Available",
+          "type": "formula",
+          "options": { "formula": "{Qty On Hand} - {Qty Reserved}", "result": { "type": "number" } }
+        },
+        {
+          "id": "fldDemoStck000007",
+          "name": "Last Counted",
+          "type": "date",
+          "options": { "dateFormat": { "name": "us", "format": "M/D/YYYY" } }
+        },
+        { "id": "fldDemoStck000008", "name": "Counted By", "type": "singleCollaborator", "options": {} }
+      ]
+    },
+    {
+      "id": "tblDemoLocs000001",
+      "name": "Locations",
+      "primaryFieldId": "fldDemoLocs000001",
+      "fields": [
+        { "id": "fldDemoLocs000001", "name": "Location Name", "type": "singleLineText" },
+        {
+          "id": "fldDemoLocs000002",
+          "name": "Type",
+          "type": "singleSelect",
+          "options": {
+            "choices": [
+              { "id": "selDemoLocs0201", "name": "Warehouse", "color": "blueLight2" },
+              { "id": "selDemoLocs0202", "name": "Retail Store", "color": "cyanLight2" },
+              { "id": "selDemoLocs0203", "name": "3PL", "color": "tealLight2" }
+            ]
+          }
+        },
+        { "id": "fldDemoLocs000003", "name": "Address", "type": "multilineText" },
+        { "id": "fldDemoLocs000004", "name": "Manager", "type": "singleCollaborator", "options": {} },
+        { "id": "fldDemoLocs000005", "name": "Phone", "type": "phoneNumber" },
+        {
+          "id": "fldDemoLocs000006",
+          "name": "Active",
+          "type": "checkbox",
+          "options": { "icon": "check", "color": "greenBright" }
+        }
+      ]
+    },
+    {
+      "id": "tblDemoInbd000001",
+      "name": "Inbound Shipments",
+      "primaryFieldId": "fldDemoInbd000001",
+      "fields": [
+        { "id": "fldDemoInbd000001", "name": "Shipment Ref", "type": "singleLineText" },
+        {
+          "id": "fldDemoInbd000002",
+          "name": "Expected Date",
+          "type": "date",
+          "options": { "dateFormat": { "name": "us", "format": "M/D/YYYY" } }
+        },
+        {
+          "id": "fldDemoInbd000003",
+          "name": "Received Date",
+          "type": "date",
+          "options": { "dateFormat": { "name": "us", "format": "M/D/YYYY" } }
+        },
+        {
+          "id": "fldDemoInbd000004",
+          "name": "Status",
+          "type": "singleSelect",
+          "options": {
+            "choices": [
+              { "id": "selDemoInbd0401", "name": "Scheduled", "color": "blueLight2" },
+              { "id": "selDemoInbd0402", "name": "At Port", "color": "cyanLight2" },
+              { "id": "selDemoInbd0403", "name": "Receiving", "color": "tealLight2" },
+              { "id": "selDemoInbd0404", "name": "Put Away", "color": "greenLight2" }
+            ]
+          }
+        },
+        { "id": "fldDemoInbd000005", "name": "Carrier", "type": "singleLineText" },
+        { "id": "fldDemoInbd000006", "name": "Pallets", "type": "number", "options": { "precision": 0 } },
+        { "id": "fldDemoInbd000007", "name": "Notes", "type": "multilineText" }
+      ]
+    },
+    {
+      "id": "tblDemoCycl000001",
+      "name": "Cycle Counts",
+      "primaryFieldId": "fldDemoCycl000001",
+      "fields": [
+        { "id": "fldDemoCycl000001", "name": "Count Name", "type": "singleLineText" },
+        {
+          "id": "fldDemoCycl000002",
+          "name": "Location",
+          "type": "multipleRecordLinks",
+          "options": {
+            "linkedTableId": "tblDemoLocs000001",
+            "isReversed": false,
+            "prefersSingleRecordLink": false
+          }
+        },
+        {
+          "id": "fldDemoCycl000003",
+          "name": "Count Date",
+          "type": "date",
+          "options": { "dateFormat": { "name": "us", "format": "M/D/YYYY" } }
+        },
+        {
+          "id": "fldDemoCycl000004",
+          "name": "Discrepancies",
+          "type": "number",
+          "options": { "precision": 0 }
+        },
+        {
+          "id": "fldDemoCycl000005",
+          "name": "Completed",
+          "type": "checkbox",
+          "options": { "icon": "check", "color": "greenBright" }
+        },
+        { "id": "fldDemoCycl000006", "name": "Notes", "type": "multilineText" }
+      ]
+    }
+  ]
+}

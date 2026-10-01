@@ -1,0 +1,304 @@
+{
+  "tables": [
+    {
+      "id": "tblDemoCamp000001",
+      "name": "Campaigns",
+      "primaryFieldId": "fldDemoCamp000001",
+      "fields": [
+        { "id": "fldDemoCamp000001", "name": "Campaign Name", "type": "singleLineText" },
+        {
+          "id": "fldDemoCamp000002",
+          "name": "Start Date",
+          "type": "date",
+          "options": { "dateFormat": { "name": "us", "format": "M/D/YYYY" } }
+        },
+        {
+          "id": "fldDemoCamp000003",
+          "name": "End Date",
+          "type": "date",
+          "options": { "dateFormat": { "name": "us", "format": "M/D/YYYY" } }
+        },
+        {
+          "id": "fldDemoCamp000004",
+          "name": "Budget",
+          "type": "currency",
+          "options": { "precision": 2, "symbol": "$" }
+        },
+        {
+          "id": "fldDemoCamp000005",
+          "name": "Goal Revenue",
+          "type": "currency",
+          "options": { "precision": 2, "symbol": "$" }
+        },
+        {
+          "id": "fldDemoCamp000006",
+          "name": "Channel",
+          "type": "multipleSelects",
+          "options": {
+            "choices": [
+              { "id": "selDemoCamp0601", "name": "Email", "color": "blueLight2" },
+              { "id": "selDemoCamp0602", "name": "Instagram", "color": "cyanLight2" },
+              { "id": "selDemoCamp0603", "name": "Pinterest", "color": "tealLight2" },
+              { "id": "selDemoCamp0604", "name": "Paid Search", "color": "greenLight2" },
+              { "id": "selDemoCamp0605", "name": "In-Store", "color": "yellowLight2" }
+            ]
+          }
+        },
+        {
+          "id": "fldDemoCamp000007",
+          "name": "Status",
+          "type": "singleSelect",
+          "options": {
+            "choices": [
+              { "id": "selDemoCamp0701", "name": "Planning", "color": "blueLight2" },
+              { "id": "selDemoCamp0702", "name": "Active", "color": "cyanLight2" },
+              { "id": "selDemoCamp0703", "name": "Completed", "color": "tealLight2" }
+            ]
+          }
+        },
+        { "id": "fldDemoCamp000008", "name": "Owner", "type": "singleCollaborator", "options": {} },
+        {
+          "id": "fldDemoCamp000009",
+          "name": "Featured Products",
+          "type": "multipleRecordLinks",
+          "options": {
+            "linkedTableId": "tblDemoFeaP000001",
+            "isReversed": false,
+            "prefersSingleRecordLink": false
+          }
+        },
+        {
+          "id": "fldDemoCamp000010",
+          "name": "Collection",
+          "type": "multipleRecordLinks",
+          "options": {
+            "linkedTableId": "tblDemoMCol000001",
+            "isReversed": false,
+            "prefersSingleRecordLink": false
+          }
+        },
+        {
+          "id": "fldDemoCamp000011",
+          "name": "Assets",
+          "type": "multipleAttachments",
+          "options": { "isReversed": false }
+        },
+        { "id": "fldDemoCamp000012", "name": "Brief", "type": "richText" },
+        {
+          "id": "fldDemoCamp000013",
+          "name": "Days Remaining",
+          "type": "formula",
+          "options": {
+            "formula": "DATETIME_DIFF({End Date}, TODAY(), 'days')",
+            "result": { "type": "number" }
+          }
+        }
+      ]
+    },
+    {
+      "id": "tblDemoPost000001",
+      "name": "Content Calendar",
+      "primaryFieldId": "fldDemoPost000001",
+      "fields": [
+        { "id": "fldDemoPost000001", "name": "Post Title", "type": "singleLineText" },
+        {
+          "id": "fldDemoPost000002",
+          "name": "Publish Date",
+          "type": "dateTime",
+          "options": {
+            "dateFormat": { "name": "us", "format": "M/D/YYYY" },
+            "timeFormat": { "name": "12hour", "format": "h:mma" },
+            "timeZone": "America/Los_Angeles"
+          }
+        },
+        {
+          "id": "fldDemoPost000003",
+          "name": "Channel",
+          "type": "singleSelect",
+          "options": {
+            "choices": [
+              { "id": "selDemoPost0301", "name": "Instagram", "color": "blueLight2" },
+              { "id": "selDemoPost0302", "name": "Pinterest", "color": "cyanLight2" },
+              { "id": "selDemoPost0303", "name": "Blog", "color": "tealLight2" },
+              { "id": "selDemoPost0304", "name": "TikTok", "color": "greenLight2" },
+              { "id": "selDemoPost0305", "name": "Email", "color": "yellowLight2" }
+            ]
+          }
+        },
+        {
+          "id": "fldDemoPost000004",
+          "name": "Campaign",
+          "type": "multipleRecordLinks",
+          "options": {
+            "linkedTableId": "tblDemoCamp000001",
+            "isReversed": false,
+            "prefersSingleRecordLink": false
+          }
+        },
+        { "id": "fldDemoPost000005", "name": "Copy", "type": "multilineText" },
+        {
+          "id": "fldDemoPost000006",
+          "name": "Status",
+          "type": "singleSelect",
+          "options": {
+            "choices": [
+              { "id": "selDemoPost0601", "name": "Idea", "color": "blueLight2" },
+              { "id": "selDemoPost0602", "name": "Drafting", "color": "cyanLight2" },
+              { "id": "selDemoPost0603", "name": "Scheduled", "color": "tealLight2" },
+              { "id": "selDemoPost0604", "name": "Published", "color": "greenLight2" }
+            ]
+          }
+        },
+        { "id": "fldDemoPost000007", "name": "Assigned To", "type": "multipleCollaborators", "options": {} },
+        { "id": "fldDemoPost000008", "name": "Post URL", "type": "url" }
+      ]
+    },
+    {
+      "id": "tblDemoFeaP000001",
+      "name": "Featured Products",
+      "primaryFieldId": "fldDemoFeaP000001",
+      "syncSource": { "sourceApplicationId": "appDemoProduct001", "sourceTableId": "tblDemoProd000001" },
+      "fields": [
+        { "id": "fldDemoFeaP000001", "name": "Product Name", "type": "singleLineText" },
+        { "id": "fldDemoFeaP000002", "name": "SKU", "type": "singleLineText" },
+        {
+          "id": "fldDemoFeaP000003",
+          "name": "Retail Price",
+          "type": "currency",
+          "options": { "precision": 2, "symbol": "$" }
+        },
+        {
+          "id": "fldDemoFeaP000004",
+          "name": "Product Photos",
+          "type": "multipleAttachments",
+          "options": { "isReversed": false }
+        },
+        {
+          "id": "fldDemoFeaP000005",
+          "name": "Tags",
+          "type": "multipleSelects",
+          "options": {
+            "choices": [
+              { "id": "selDemoFeaP0501", "name": "Bestseller", "color": "blueLight2" },
+              { "id": "selDemoFeaP0502", "name": "New", "color": "cyanLight2" },
+              { "id": "selDemoFeaP0503", "name": "Gift Idea", "color": "tealLight2" },
+              { "id": "selDemoFeaP0504", "name": "Eco", "color": "greenLight2" },
+              { "id": "selDemoFeaP0505", "name": "Limited", "color": "yellowLight2" }
+            ]
+          }
+        },
+        {
+          "id": "fldDemoFeaP000006",
+          "name": "Campaigns",
+          "type": "multipleRecordLinks",
+          "options": {
+            "linkedTableId": "tblDemoCamp000001",
+            "isReversed": false,
+            "prefersSingleRecordLink": false
+          }
+        }
+      ]
+    },
+    {
+      "id": "tblDemoMCol000001",
+      "name": "Collections",
+      "primaryFieldId": "fldDemoMCol000001",
+      "syncSource": { "sourceApplicationId": "appDemoProduct001", "sourceTableId": "tblDemoColl000001" },
+      "fields": [
+        { "id": "fldDemoMCol000001", "name": "Collection Name", "type": "singleLineText" },
+        {
+          "id": "fldDemoMCol000002",
+          "name": "Season",
+          "type": "singleSelect",
+          "options": {
+            "choices": [
+              { "id": "selDemoMCol0201", "name": "Spring", "color": "blueLight2" },
+              { "id": "selDemoMCol0202", "name": "Summer", "color": "cyanLight2" },
+              { "id": "selDemoMCol0203", "name": "Fall", "color": "tealLight2" },
+              { "id": "selDemoMCol0204", "name": "Holiday", "color": "greenLight2" }
+            ]
+          }
+        },
+        {
+          "id": "fldDemoMCol000003",
+          "name": "Launch Date",
+          "type": "date",
+          "options": { "dateFormat": { "name": "us", "format": "M/D/YYYY" } }
+        },
+        {
+          "id": "fldDemoMCol000004",
+          "name": "Hero Image",
+          "type": "multipleAttachments",
+          "options": { "isReversed": false }
+        },
+        { "id": "fldDemoMCol000005", "name": "Description", "type": "multilineText" },
+        {
+          "id": "fldDemoMCol000006",
+          "name": "Is Live",
+          "type": "checkbox",
+          "options": { "icon": "check", "color": "greenBright" }
+        },
+        {
+          "id": "fldDemoMCol000007",
+          "name": "Campaigns",
+          "type": "multipleRecordLinks",
+          "options": {
+            "linkedTableId": "tblDemoCamp000001",
+            "isReversed": false,
+            "prefersSingleRecordLink": false
+          }
+        }
+      ]
+    },
+    {
+      "id": "tblDemoMail000001",
+      "name": "Email Sends",
+      "primaryFieldId": "fldDemoMail000001",
+      "fields": [
+        { "id": "fldDemoMail000001", "name": "Send Name", "type": "singleLineText" },
+        {
+          "id": "fldDemoMail000002",
+          "name": "Send Date",
+          "type": "dateTime",
+          "options": {
+            "dateFormat": { "name": "us", "format": "M/D/YYYY" },
+            "timeFormat": { "name": "12hour", "format": "h:mma" },
+            "timeZone": "America/Los_Angeles"
+          }
+        },
+        {
+          "id": "fldDemoMail000003",
+          "name": "Segment",
+          "type": "singleSelect",
+          "options": {
+            "choices": [
+              { "id": "selDemoMail0301", "name": "All Subscribers", "color": "blueLight2" },
+              { "id": "selDemoMail0302", "name": "VIP", "color": "cyanLight2" },
+              { "id": "selDemoMail0303", "name": "Lapsed 90 Days", "color": "tealLight2" },
+              { "id": "selDemoMail0304", "name": "Wholesale Buyers", "color": "greenLight2" }
+            ]
+          }
+        },
+        {
+          "id": "fldDemoMail000004",
+          "name": "Campaign",
+          "type": "multipleRecordLinks",
+          "options": {
+            "linkedTableId": "tblDemoCamp000001",
+            "isReversed": false,
+            "prefersSingleRecordLink": false
+          }
+        },
+        { "id": "fldDemoMail000005", "name": "Recipients", "type": "number", "options": { "precision": 0 } },
+        { "id": "fldDemoMail000006", "name": "Open Rate", "type": "percent", "options": { "precision": 1 } },
+        { "id": "fldDemoMail000007", "name": "Click Rate", "type": "percent", "options": { "precision": 1 } },
+        {
+          "id": "fldDemoMail000008",
+          "name": "Revenue",
+          "type": "currency",
+          "options": { "precision": 2, "symbol": "$" }
+        }
+      ]
+    }
+  ]
+}

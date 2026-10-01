@@ -1,0 +1,242 @@
+{
+  "tables": [
+    {
+      "id": "tblDemoTick000001",
+      "name": "Tickets",
+      "primaryFieldId": "fldDemoTick000001",
+      "fields": [
+        { "id": "fldDemoTick000001", "name": "Ticket Subject", "type": "singleLineText" },
+        {
+          "id": "fldDemoTick000002",
+          "name": "Customer",
+          "type": "multipleRecordLinks",
+          "options": {
+            "linkedTableId": "tblDemoSCus000001",
+            "isReversed": false,
+            "prefersSingleRecordLink": false
+          }
+        },
+        {
+          "id": "fldDemoTick000003",
+          "name": "Order",
+          "type": "multipleRecordLinks",
+          "options": {
+            "linkedTableId": "tblDemoOrdr000001",
+            "isReversed": false,
+            "prefersSingleRecordLink": false
+          }
+        },
+        {
+          "id": "fldDemoTick000004",
+          "name": "Channel",
+          "type": "singleSelect",
+          "options": {
+            "choices": [
+              { "id": "selDemoTick0401", "name": "Email", "color": "blueLight2" },
+              { "id": "selDemoTick0402", "name": "Chat", "color": "cyanLight2" },
+              { "id": "selDemoTick0403", "name": "Phone", "color": "tealLight2" },
+              { "id": "selDemoTick0404", "name": "Instagram DM", "color": "greenLight2" }
+            ]
+          }
+        },
+        {
+          "id": "fldDemoTick000005",
+          "name": "Priority",
+          "type": "singleSelect",
+          "options": {
+            "choices": [
+              { "id": "selDemoTick0501", "name": "Low", "color": "blueLight2" },
+              { "id": "selDemoTick0502", "name": "Normal", "color": "cyanLight2" },
+              { "id": "selDemoTick0503", "name": "High", "color": "tealLight2" },
+              { "id": "selDemoTick0504", "name": "Urgent", "color": "greenLight2" }
+            ]
+          }
+        },
+        {
+          "id": "fldDemoTick000006",
+          "name": "Status",
+          "type": "singleSelect",
+          "options": {
+            "choices": [
+              { "id": "selDemoTick0601", "name": "New", "color": "blueLight2" },
+              { "id": "selDemoTick0602", "name": "Open", "color": "cyanLight2" },
+              { "id": "selDemoTick0603", "name": "Waiting on Customer", "color": "tealLight2" },
+              { "id": "selDemoTick0604", "name": "Resolved", "color": "greenLight2" }
+            ]
+          }
+        },
+        { "id": "fldDemoTick000007", "name": "Assignee", "type": "singleCollaborator", "options": {} },
+        {
+          "id": "fldDemoTick000008",
+          "name": "Opened",
+          "type": "createdTime",
+          "options": {
+            "result": {
+              "type": "dateTime",
+              "options": {
+                "dateFormat": { "name": "us", "format": "M/D/YYYY" },
+                "timeFormat": { "name": "12hour", "format": "h:mma" },
+                "timeZone": "America/Los_Angeles"
+              }
+            }
+          }
+        },
+        {
+          "id": "fldDemoTick000009",
+          "name": "Resolved On",
+          "type": "dateTime",
+          "options": {
+            "dateFormat": { "name": "us", "format": "M/D/YYYY" },
+            "timeFormat": { "name": "12hour", "format": "h:mma" },
+            "timeZone": "America/Los_Angeles"
+          }
+        },
+        {
+          "id": "fldDemoTick000010",
+          "name": "Satisfaction",
+          "type": "rating",
+          "options": { "icon": "star", "max": 5, "color": "yellowBright" }
+        },
+        {
+          "id": "fldDemoTick000011",
+          "name": "Tags",
+          "type": "multipleSelects",
+          "options": {
+            "choices": [
+              { "id": "selDemoTick1101", "name": "Shipping Delay", "color": "blueLight2" },
+              { "id": "selDemoTick1102", "name": "Damaged Item", "color": "cyanLight2" },
+              { "id": "selDemoTick1103", "name": "Wrong Item", "color": "tealLight2" },
+              { "id": "selDemoTick1104", "name": "Sizing", "color": "greenLight2" },
+              { "id": "selDemoTick1105", "name": "Billing", "color": "yellowLight2" }
+            ]
+          }
+        },
+        { "id": "fldDemoTick000012", "name": "Conversation", "type": "multilineText" },
+        {
+          "id": "fldDemoTick000013",
+          "name": "Macros Used",
+          "type": "multipleRecordLinks",
+          "options": {
+            "linkedTableId": "tblDemoMacr000001",
+            "isReversed": false,
+            "prefersSingleRecordLink": false
+          }
+        }
+      ]
+    },
+    {
+      "id": "tblDemoSCus000001",
+      "name": "Customers",
+      "primaryFieldId": "fldDemoSCus000001",
+      "syncSource": { "sourceApplicationId": "appDemoOrders0001", "sourceTableId": "tblDemoCust000001" },
+      "fields": [
+        { "id": "fldDemoSCus000001", "name": "Full Name", "type": "singleLineText" },
+        { "id": "fldDemoSCus000002", "name": "Email", "type": "email" },
+        { "id": "fldDemoSCus000003", "name": "Phone", "type": "phoneNumber" },
+        { "id": "fldDemoSCus000004", "name": "City", "type": "singleLineText" },
+        { "id": "fldDemoSCus000005", "name": "State", "type": "singleLineText" },
+        {
+          "id": "fldDemoSCus000006",
+          "name": "Customer Since",
+          "type": "date",
+          "options": { "dateFormat": { "name": "us", "format": "M/D/YYYY" } }
+        },
+        {
+          "id": "fldDemoSCus000007",
+          "name": "Loyalty Tier",
+          "type": "singleSelect",
+          "options": {
+            "choices": [
+              { "id": "selDemoSCus0701", "name": "Bronze", "color": "blueLight2" },
+              { "id": "selDemoSCus0702", "name": "Silver", "color": "cyanLight2" },
+              { "id": "selDemoSCus0703", "name": "Gold", "color": "tealLight2" }
+            ]
+          }
+        },
+        {
+          "id": "fldDemoSCus000008",
+          "name": "Tickets",
+          "type": "multipleRecordLinks",
+          "options": {
+            "linkedTableId": "tblDemoTick000001",
+            "isReversed": false,
+            "prefersSingleRecordLink": false
+          }
+        }
+      ]
+    },
+    {
+      "id": "tblDemoMacr000001",
+      "name": "Macros",
+      "primaryFieldId": "fldDemoMacr000001",
+      "fields": [
+        { "id": "fldDemoMacr000001", "name": "Macro Name", "type": "singleLineText" },
+        {
+          "id": "fldDemoMacr000002",
+          "name": "Category",
+          "type": "singleSelect",
+          "options": {
+            "choices": [
+              { "id": "selDemoMacr0201", "name": "Shipping", "color": "blueLight2" },
+              { "id": "selDemoMacr0202", "name": "Returns", "color": "cyanLight2" },
+              { "id": "selDemoMacr0203", "name": "Product Care", "color": "tealLight2" },
+              { "id": "selDemoMacr0204", "name": "Billing", "color": "greenLight2" }
+            ]
+          }
+        },
+        { "id": "fldDemoMacr000003", "name": "Response Text", "type": "multilineText" },
+        {
+          "id": "fldDemoMacr000004",
+          "name": "Tickets",
+          "type": "multipleRecordLinks",
+          "options": {
+            "linkedTableId": "tblDemoTick000001",
+            "isReversed": false,
+            "prefersSingleRecordLink": false
+          }
+        },
+        {
+          "id": "fldDemoMacr000005",
+          "name": "Times Used",
+          "type": "count",
+          "options": { "isValid": true, "recordLinkFieldId": "fldDemoMacr000004" }
+        }
+      ]
+    },
+    {
+      "id": "tblDemoKBAr000001",
+      "name": "Help Center Articles",
+      "primaryFieldId": "fldDemoKBAr000001",
+      "fields": [
+        { "id": "fldDemoKBAr000001", "name": "Article Title", "type": "singleLineText" },
+        {
+          "id": "fldDemoKBAr000002",
+          "name": "Category",
+          "type": "singleSelect",
+          "options": {
+            "choices": [
+              { "id": "selDemoKBAr0201", "name": "Orders", "color": "blueLight2" },
+              { "id": "selDemoKBAr0202", "name": "Shipping", "color": "cyanLight2" },
+              { "id": "selDemoKBAr0203", "name": "Returns", "color": "tealLight2" },
+              { "id": "selDemoKBAr0204", "name": "Product Care", "color": "greenLight2" }
+            ]
+          }
+        },
+        { "id": "fldDemoKBAr000003", "name": "Body", "type": "richText" },
+        {
+          "id": "fldDemoKBAr000004",
+          "name": "Published",
+          "type": "checkbox",
+          "options": { "icon": "check", "color": "greenBright" }
+        },
+        {
+          "id": "fldDemoKBAr000005",
+          "name": "Last Reviewed",
+          "type": "date",
+          "options": { "dateFormat": { "name": "us", "format": "M/D/YYYY" } }
+        },
+        { "id": "fldDemoKBAr000006", "name": "Public URL", "type": "url" }
+      ]
+    }
+  ]
+}

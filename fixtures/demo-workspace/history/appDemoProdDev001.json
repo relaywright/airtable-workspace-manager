@@ -1,0 +1,30 @@
+{
+  "changes": [
+    {
+      "daysAgo": 26,
+      "summary": "Added a Samples table to track prototype samples",
+      "edits": [{ "op": "addTable", "tableId": "tblDemoSmpl000001" }]
+    },
+    {
+      "daysAgo": 3,
+      "summary": "Added a Shelved stage for paused concepts",
+      "edits": [
+        {
+          "op": "modifyField",
+          "fieldId": "fldDemoCncp000004",
+          "from": {
+            "options": {
+              "choices": [
+                { "id": "selDemoCncp0401", "name": "Idea", "color": "blueLight2" },
+                { "id": "selDemoCncp0402", "name": "Sketch", "color": "cyanLight2" },
+                { "id": "selDemoCncp0403", "name": "Prototype", "color": "tealLight2" },
+                { "id": "selDemoCncp0404", "name": "Approved", "color": "greenLight2" },
+                { "id": "selDemoCncp0405", "name": "Launched", "color": "yellowLight2" }
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

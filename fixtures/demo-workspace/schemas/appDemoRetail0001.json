@@ -1,0 +1,193 @@
+{
+  "tables": [
+    {
+      "id": "tblDemoStor000001",
+      "name": "Stores",
+      "primaryFieldId": "fldDemoStor000001",
+      "fields": [
+        { "id": "fldDemoStor000001", "name": "Store Name", "type": "singleLineText" },
+        { "id": "fldDemoStor000002", "name": "Address", "type": "multilineText" },
+        { "id": "fldDemoStor000003", "name": "Store Manager", "type": "singleCollaborator", "options": {} },
+        { "id": "fldDemoStor000004", "name": "Phone", "type": "phoneNumber" },
+        { "id": "fldDemoStor000005", "name": "Opening Hours", "type": "multilineText" },
+        { "id": "fldDemoStor000006", "name": "Square Feet", "type": "number", "options": { "precision": 0 } },
+        {
+          "id": "fldDemoStor000007",
+          "name": "Opened",
+          "type": "date",
+          "options": { "dateFormat": { "name": "us", "format": "M/D/YYYY" } }
+        }
+      ]
+    },
+    {
+      "id": "tblDemoRLoc000001",
+      "name": "Locations",
+      "primaryFieldId": "fldDemoRLoc000001",
+      "fields": [
+        { "id": "fldDemoRLoc000001", "name": "Location Name", "type": "singleLineText" },
+        {
+          "id": "fldDemoRLoc000002",
+          "name": "Type",
+          "type": "singleSelect",
+          "options": {
+            "choices": [
+              { "id": "selDemoRLoc0201", "name": "Warehouse", "color": "blueLight2" },
+              { "id": "selDemoRLoc0202", "name": "Retail Store", "color": "cyanLight2" },
+              { "id": "selDemoRLoc0203", "name": "3PL", "color": "tealLight2" }
+            ]
+          }
+        },
+        { "id": "fldDemoRLoc000003", "name": "Address", "type": "multilineText" },
+        { "id": "fldDemoRLoc000004", "name": "Manager", "type": "singleCollaborator", "options": {} },
+        { "id": "fldDemoRLoc000005", "name": "Phone", "type": "phoneNumber" },
+        { "id": "fldDemoRLoc000006", "name": "Notes", "type": "multilineText" }
+      ]
+    },
+    {
+      "id": "tblDemoStPr000001",
+      "name": "Store Products",
+      "primaryFieldId": "fldDemoStPr000001",
+      "syncSource": { "sourceApplicationId": "appDemoProduct001", "sourceTableId": "tblDemoProd000001" },
+      "fields": [
+        { "id": "fldDemoStPr000001", "name": "Product Name", "type": "singleLineText" },
+        { "id": "fldDemoStPr000002", "name": "SKU", "type": "singleLineText" },
+        {
+          "id": "fldDemoStPr000003",
+          "name": "Retail Price",
+          "type": "currency",
+          "options": { "precision": 2, "symbol": "$" }
+        },
+        { "id": "fldDemoStPr000004", "name": "Barcode", "type": "barcode" },
+        {
+          "id": "fldDemoStPr000005",
+          "name": "Status",
+          "type": "singleSelect",
+          "options": {
+            "choices": [
+              { "id": "selDemoStPr0501", "name": "Active", "color": "blueLight2" },
+              { "id": "selDemoStPr0502", "name": "Draft", "color": "cyanLight2" },
+              { "id": "selDemoStPr0503", "name": "Seasonal", "color": "tealLight2" },
+              { "id": "selDemoStPr0504", "name": "Discontinued", "color": "greenLight2" }
+            ]
+          }
+        },
+        {
+          "id": "fldDemoStPr000006",
+          "name": "Display Location",
+          "type": "singleSelect",
+          "options": {
+            "choices": [
+              { "id": "selDemoStPr0601", "name": "Front Table", "color": "blueLight2" },
+              { "id": "selDemoStPr0602", "name": "Wall Shelf", "color": "cyanLight2" },
+              { "id": "selDemoStPr0603", "name": "Window", "color": "tealLight2" },
+              { "id": "selDemoStPr0604", "name": "Back Stock", "color": "greenLight2" }
+            ]
+          }
+        },
+        { "id": "fldDemoStPr000007", "name": "qty_on_hand", "type": "number", "options": { "precision": 0 } }
+      ]
+    },
+    {
+      "id": "tblDemoSale000001",
+      "name": "Daily Sales",
+      "primaryFieldId": "fldDemoSale000001",
+      "fields": [
+        { "id": "fldDemoSale000001", "name": "Sales Day", "type": "singleLineText" },
+        {
+          "id": "fldDemoSale000002",
+          "name": "Store",
+          "type": "multipleRecordLinks",
+          "options": {
+            "linkedTableId": "tblDemoStor000001",
+            "isReversed": false,
+            "prefersSingleRecordLink": false
+          }
+        },
+        {
+          "id": "fldDemoSale000003",
+          "name": "Date",
+          "type": "date",
+          "options": { "dateFormat": { "name": "us", "format": "M/D/YYYY" } }
+        },
+        {
+          "id": "fldDemoSale000004",
+          "name": "Gross Sales",
+          "type": "currency",
+          "options": { "precision": 2, "symbol": "$" }
+        },
+        {
+          "id": "fldDemoSale000005",
+          "name": "Transactions",
+          "type": "number",
+          "options": { "precision": 0 }
+        },
+        {
+          "id": "fldDemoSale000006",
+          "name": "Avg Ticket",
+          "type": "formula",
+          "options": { "formula": "{Gross Sales} / {Transactions}", "result": { "type": "currency" } }
+        },
+        {
+          "id": "fldDemoSale000007",
+          "name": "Foot Traffic",
+          "type": "number",
+          "options": { "precision": 0 }
+        },
+        {
+          "id": "fldDemoSale000008",
+          "name": "Conversion",
+          "type": "formula",
+          "options": { "formula": "{Transactions} / {Foot Traffic}", "result": { "type": "percent" } }
+        }
+      ]
+    },
+    {
+      "id": "tblDemoShft000001",
+      "name": "Staff Schedule",
+      "primaryFieldId": "fldDemoShft000001",
+      "fields": [
+        { "id": "fldDemoShft000001", "name": "Shift", "type": "singleLineText" },
+        {
+          "id": "fldDemoShft000002",
+          "name": "Store",
+          "type": "multipleRecordLinks",
+          "options": {
+            "linkedTableId": "tblDemoStor000001",
+            "isReversed": false,
+            "prefersSingleRecordLink": false
+          }
+        },
+        { "id": "fldDemoShft000003", "name": "Staff Member", "type": "singleCollaborator", "options": {} },
+        {
+          "id": "fldDemoShft000004",
+          "name": "Shift Start",
+          "type": "dateTime",
+          "options": {
+            "dateFormat": { "name": "us", "format": "M/D/YYYY" },
+            "timeFormat": { "name": "12hour", "format": "h:mma" },
+            "timeZone": "America/Los_Angeles"
+          }
+        },
+        {
+          "id": "fldDemoShft000005",
+          "name": "Shift End",
+          "type": "dateTime",
+          "options": {
+            "dateFormat": { "name": "us", "format": "M/D/YYYY" },
+            "timeFormat": { "name": "12hour", "format": "h:mma" },
+            "timeZone": "America/Los_Angeles"
+          }
+        },
+        {
+          "id": "fldDemoShft000006",
+          "name": "Hours",
+          "type": "formula",
+          "options": {
+            "formula": "DATETIME_DIFF({Shift End}, {Shift Start}, 'hours')",
+            "result": { "type": "number" }
+          }
+        }
+      ]
+    }
+  ]
+}

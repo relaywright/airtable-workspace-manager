@@ -1,0 +1,13 @@
+dist
+dist-electron
+coverage
+package-lock.json
+fixtures
+_local-archive
+scripts/denylist.sha256.txt
+*.md
+node_modules
+release
+.claude
+.codex
+.superpowers
