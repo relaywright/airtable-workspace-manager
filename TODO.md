@@ -14,8 +14,8 @@ Decided 2026-10-01: launch soon with Backups labeled as a preview (restore comes
 - [x] README install steps for each system, including how to get past the unsigned-app warning, replacing the run-from-source quick start.
 - [x] First-run polish: a friendlier message when Airtable rejects a token, and change log times shown in local time.
 - [x] Known issues: tag dropdown outside click, trace-mode legend colors, Cytoscape cleanup on navigation (already fixed; the schema map now also clears its reference).
-- [ ] Repo page: description, topics, homepage link.
-- [ ] Publish v0.1.0 as a one-commit public repository that passes gitleaks, `check:clean`, and a scan for Airtable token shapes.
+- [x] Repo page: description, topics, homepage link.
+- [x] Publish v0.1.0 as a one-commit public repository that passes gitleaks, `check:clean`, and a scan for Airtable token shapes.
 
 ## After v0.1: Backup & restore
 
