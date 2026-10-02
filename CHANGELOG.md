@@ -7,6 +7,16 @@ project uses semantic versioning once a stable release ships.
 
 ## [Unreleased]
 
+### Added
+
+- Animated README demo (`docs/demo.webp`) recorded from the real app on the fictional sample
+  workspace: the map, a selected base with its impact view, and the change log.
+- Animated explainer of how unrecorded syncs are detected (`docs/sync-detection.svg`), using a
+  real pair from the sample data: two Contacts tables that score 80% and are drawn as suspected.
+- `npm run capture:demo` (`scripts/capture-demo.mjs`): re-records the demo with a scripted
+  cursor whenever the interface changes. It runs the app on a throwaway profile, so saved
+  settings and tokens are never touched. Adds `playwright-core` as a dev dependency.
+
 ## [0.1.0] - 2026-10-01
 
 First public release of Airtable Workspace Manager: a free, local-first desktop app for

@@ -29,9 +29,7 @@ Scheduled, incremental backups of every record and attachment, with a preview-be
 
 - Data quality: duplicate detection, empty/unused fields, broken links, workspace health score.
 - Write tools: bulk edit, cross-base sync, merge duplicates, each preceded by an automatic snapshot so it can be undone.
-- README GIF (screenshots are in `docs/screenshots/`).
 - Signed installers for macOS and Windows (v0.1 ships unsigned).
-- Demo video.
 - Change Log rows: show a short diff summary in the collapsed row, not just "Schema snapshot at ...".
 - Markdown export: use the friendly permission labels (it prints raw values like `create`).
 - Split the largest components (`WorkspaceMap.jsx`, `SetupModal.jsx`) and add a shared icon component.

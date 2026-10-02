@@ -1,0 +1,239 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="600" viewBox="0 0 1200 600"
+  role="img" aria-labelledby="sync-title sync-description">
+  <title id="sync-title">How Workspace Manager spots an unrecorded sync</title>
+  <desc id="sync-description">The Contacts tables in Suppliers &amp; Purchasing and Wholesale Accounts have no recorded sync: both contain Name (Text), Email (Email), Phone (Phone), and Role (Single select), while Supplier (Link) and Account (Link) differ. Comparing names case-insensitively gives 4 shared names out of 6 distinct names (67%) and 4 equal types out of 4 shared fields (100%): (4/6 × 0.6) + (4/4 × 0.4) = 0.80, so the output is structural_match:80%, confidence suspected, above the 70% suspected threshold and below the 90% confirmed threshold.</desc>
+
+  <style>
+    svg {
+      font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      font-size: 20px;
+      fill: #e2e8f0;
+    }
+    text { font-variant-numeric: tabular-nums; }
+    .muted { fill: #64748b; }
+    .base-name, .field-type { fill: #64748b; font-size: 20px; }
+    .table-name { font-size: 32px; font-weight: 650; }
+    .field-name { font-size: 23px; }
+    .card { fill: #0f0f1a; stroke: #2d2d4a; }
+    .highlight { fill: #6366f1; opacity: 0.13; }
+    .check {
+      fill: none;
+      stroke: #6366f1;
+      stroke-width: 2.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .field-link {
+      fill: none;
+      stroke: #6366f1;
+      stroke-width: 2;
+      stroke-dasharray: 368;
+    }
+    /* Every animated element uses this one clock, with no animation delays.
+       Base styles are the completed state, also used for reduced motion. */
+    .motion {
+      animation-duration: 12s;
+      animation-iteration-count: infinite;
+      animation-timing-function: linear;
+      animation-fill-mode: both;
+    }
+    .scene { animation-name: scene; }
+    .left-card { animation-name: enter-left; transform-box: fill-box; }
+    .right-card { animation-name: enter-right; transform-box: fill-box; }
+    .match-1 { animation-name: match-one; }
+    .match-2 { animation-name: match-two; }
+    .match-3 { animation-name: match-three; }
+    .match-4 { animation-name: match-four; }
+    .comparison-note { animation-name: comparison-note; }
+    .score-panel { animation-name: score-panel; }
+    .names-score { animation-name: names-score; }
+    .types-score { animation-name: types-score; }
+    .score-fill {
+      animation-name: score-fill;
+      transform-box: fill-box;
+      transform-origin: left center;
+    }
+    .score-value { animation-name: score-value; }
+    .result { animation-name: result; }
+
+    /* 0.0–1.5s: introduce the two tables. 10.8–12.0s: fade as one. */
+    @keyframes scene {
+      0%, 100% { opacity: 0; }
+      6%, 90% { opacity: 1; }
+    }
+    @keyframes enter-left {
+      0%, 2% { opacity: 0; transform: translateX(-18px); }
+      12.5%, 100% { opacity: 1; transform: translateX(0); }
+    }
+    @keyframes enter-right {
+      0%, 2% { opacity: 0; transform: translateX(18px); }
+      12.5%, 100% { opacity: 1; transform: translateX(0); }
+    }
+    /* 1.5, 2.1, 2.7, 3.3s: draw a match, then hold for inspection. */
+    @keyframes match-one {
+      0%, 12.5% { opacity: 0; stroke-dashoffset: 368; }
+      16.6667%, 100% { opacity: 1; stroke-dashoffset: 0; }
+    }
+    @keyframes match-two {
+      0%, 17.5% { opacity: 0; stroke-dashoffset: 368; }
+      21.6667%, 100% { opacity: 1; stroke-dashoffset: 0; }
+    }
+    @keyframes match-three {
+      0%, 22.5% { opacity: 0; stroke-dashoffset: 368; }
+      26.6667%, 100% { opacity: 1; stroke-dashoffset: 0; }
+    }
+    @keyframes match-four {
+      0%, 27.5% { opacity: 0; stroke-dashoffset: 368; }
+      31.6667%, 100% { opacity: 1; stroke-dashoffset: 0; }
+    }
+    @keyframes comparison-note {
+      0%, 32% { opacity: 0; }
+      36%, 100% { opacity: 1; }
+    }
+    /* 5.0–8.0s: show both weighted terms, fill the bar, reveal 80%. */
+    @keyframes score-panel {
+      0%, 41.6667% { opacity: 0; }
+      45%, 100% { opacity: 1; }
+    }
+    @keyframes names-score {
+      0%, 43% { opacity: 0; }
+      47%, 100% { opacity: 1; }
+    }
+    @keyframes types-score {
+      0%, 48% { opacity: 0; }
+      52%, 100% { opacity: 1; }
+    }
+    @keyframes score-fill {
+      0%, 53% { transform: scaleX(0); }
+      63%, 100% { transform: scaleX(1); }
+    }
+    @keyframes score-value {
+      0%, 63% { opacity: 0; }
+      66.6667%, 100% { opacity: 1; }
+    }
+    /* 8.0–10.8s: reveal the suspected sync and hold. */
+    @keyframes result {
+      0%, 66.6667% { opacity: 0; }
+      70%, 100% { opacity: 1; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .motion { animation: none; }
+    }
+  </style>
+
+  <rect width="1200" height="600" fill="#0f0f1a"/>
+  <rect x="20" y="20" width="1160" height="560" rx="24" fill="#1a1a2e" stroke="#2d2d4a"/>
+
+  <g id="explainer" class="motion scene">
+    <text x="600" y="65" text-anchor="middle" font-size="27" font-weight="550">Same table name in two bases. No sync on record.</text>
+
+    <g id="suppliers-table" class="motion left-card">
+      <rect class="card" x="64" y="96" width="352" height="296" rx="16"/>
+      <text class="base-name" x="88" y="128">Suppliers &amp; Purchasing</text>
+      <text class="table-name" x="88" y="164">Contacts</text>
+      <path d="M 64 180 H 416" stroke="#2d2d4a"/>
+      <g id="supplier-fields">
+        <text class="field-name" x="96" y="212">Name</text>
+        <text class="field-type" x="364" y="212" text-anchor="end">Text</text>
+        <text class="field-name" x="96" y="251">Email</text>
+        <text class="field-type" x="364" y="251" text-anchor="end">Email</text>
+        <text class="field-name" x="96" y="290">Phone</text>
+        <text class="field-type" x="364" y="290" text-anchor="end">Phone</text>
+        <text class="field-name" x="96" y="329">Role</text>
+        <text class="field-type" x="364" y="329" text-anchor="end">Single select</text>
+        <g id="unmatched-supplier" class="muted">
+          <text class="field-name" x="96" y="368">Supplier</text>
+          <text class="field-type" x="364" y="368" text-anchor="end">Link</text>
+        </g>
+      </g>
+    </g>
+
+    <g id="wholesale-table" class="motion right-card">
+      <rect class="card" x="784" y="96" width="352" height="296" rx="16"/>
+      <text class="base-name" x="808" y="128">Wholesale Accounts</text>
+      <text class="table-name" x="808" y="164">Contacts</text>
+      <path d="M 784 180 H 1136" stroke="#2d2d4a"/>
+      <g id="wholesale-fields">
+        <text class="field-name" x="816" y="212">Name</text>
+        <text class="field-type" x="1084" y="212" text-anchor="end">Text</text>
+        <text class="field-name" x="816" y="251">Email</text>
+        <text class="field-type" x="1084" y="251" text-anchor="end">Email</text>
+        <text class="field-name" x="816" y="290">Phone</text>
+        <text class="field-type" x="1084" y="290" text-anchor="end">Phone</text>
+        <text class="field-name" x="816" y="329">Role</text>
+        <text class="field-type" x="1084" y="329" text-anchor="end">Single select</text>
+        <g id="unmatched-account" class="muted">
+          <text class="field-name" x="816" y="368">Account</text>
+          <text class="field-type" x="1084" y="368" text-anchor="end">Link</text>
+        </g>
+      </g>
+    </g>
+
+    <g id="field-matches">
+      <g id="name-match" class="motion match-1">
+        <rect class="highlight" x="80" y="188" width="320" height="32" rx="6"/>
+        <rect class="highlight" x="800" y="188" width="320" height="32" rx="6"/>
+        <path class="field-link" d="M 416 204 H 784"/>
+        <path class="check" d="M 377 204 l 4 4 l 8 -9 M 1097 204 l 4 4 l 8 -9"/>
+      </g>
+      <g id="email-match" class="motion match-2">
+        <rect class="highlight" x="80" y="227" width="320" height="32" rx="6"/>
+        <rect class="highlight" x="800" y="227" width="320" height="32" rx="6"/>
+        <path class="field-link" d="M 416 243 H 784"/>
+        <path class="check" d="M 377 243 l 4 4 l 8 -9 M 1097 243 l 4 4 l 8 -9"/>
+      </g>
+      <g id="phone-match" class="motion match-3">
+        <rect class="highlight" x="80" y="266" width="320" height="32" rx="6"/>
+        <rect class="highlight" x="800" y="266" width="320" height="32" rx="6"/>
+        <path class="field-link" d="M 416 282 H 784"/>
+        <path class="check" d="M 377 282 l 4 4 l 8 -9 M 1097 282 l 4 4 l 8 -9"/>
+      </g>
+      <g id="role-match" class="motion match-4">
+        <rect class="highlight" x="80" y="305" width="320" height="32" rx="6"/>
+        <rect class="highlight" x="800" y="305" width="320" height="32" rx="6"/>
+        <path class="field-link" d="M 416 321 H 784"/>
+        <path class="check" d="M 377 321 l 4 4 l 8 -9 M 1097 321 l 4 4 l 8 -9"/>
+      </g>
+      <g id="comparison-context" class="motion comparison-note muted" text-anchor="middle">
+        <text x="600" y="360">Names ignore case.</text>
+        <text x="600" y="384">6 distinct names in total.</text>
+      </g>
+    </g>
+
+    <g id="weighted-score" class="motion score-panel">
+      <rect class="card" x="64" y="408" width="1072" height="156" rx="16"/>
+      <g id="name-calculation" class="motion names-score" font-size="23">
+        <text x="88" y="443">Field names shared</text>
+        <text x="352" y="443" font-weight="600">4 of 6 = 67%</text>
+        <text x="530" y="443" class="muted">× 0.6</text>
+      </g>
+      <g id="type-calculation" class="motion types-score" font-size="23">
+        <text x="88" y="479">Same field types</text>
+        <text x="352" y="479" font-weight="600">4 of 4 = 100%</text>
+        <text x="530" y="479" class="muted">× 0.4</text>
+      </g>
+      <g id="final-score" class="motion score-value">
+        <text x="1108" y="465" text-anchor="end" font-size="52" font-weight="700" fill="#f59e0b">80%</text>
+      </g>
+      <g id="threshold-bar">
+        <text class="muted" x="88" y="506">0%</text>
+        <text class="muted" x="1112" y="506" text-anchor="end">100%</text>
+        <rect x="88" y="516" width="1024" height="12" rx="6" fill="#2d2d4a"/>
+        <!-- 819.2 / 1024 = 80%. Tick positions use the same full-width scale. -->
+        <rect class="motion score-fill" x="88" y="516" width="819.2" height="12" rx="6" fill="#f59e0b"/>
+        <path d="M 804.8 510 V 534" stroke="#f59e0b" stroke-width="2"/>
+        <path d="M 1009.6 510 V 534" stroke="#10b981" stroke-width="2"/>
+        <text x="804.8" y="551" text-anchor="middle" fill="#f59e0b">70% suspected</text>
+        <text x="1009.6" y="551" text-anchor="middle" fill="#10b981">90% confirmed</text>
+      </g>
+    </g>
+
+    <g id="suspected-sync" class="motion result">
+      <path d="M 416 154 H 784" fill="none" stroke="#f59e0b" stroke-width="2.5" stroke-dasharray="7 6"/>
+      <circle cx="416" cy="154" r="4" fill="#f59e0b"/>
+      <circle cx="784" cy="154" r="4" fill="#f59e0b"/>
+      <rect x="444" y="134" width="312" height="40" rx="20" fill="#1a1a2e" stroke="#f59e0b"/>
+      <text x="600" y="161" text-anchor="middle" font-size="23" font-weight="600" fill="#f59e0b">Suspected sync · 80%</text>
+    </g>
+  </g>
+</svg>

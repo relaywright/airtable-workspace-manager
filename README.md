@@ -2,7 +2,7 @@
 
 A free, open-source, local-first desktop app for visualizing and managing complex Airtable workspaces. See every base as a map, catch sync and link relationships you'd otherwise track by hand, and get an optional AI health check of your schema using your own Anthropic API key. Your Airtable data stays on your machine: nothing goes to any server this project runs.
 
-![Workspace map of the fictional Cedar & Pine Goods sample workspace, with bases as nodes and confirmed and suspected syncs as edges](docs/screenshots/map.webp)
+![The app running on its fictional sample workspace: the base map lays itself out, Product Catalog is selected and its impact view shows what depends on it, then the change log lists an added and a changed field](docs/demo.webp)
 
 ## Requirements
 
@@ -19,9 +19,19 @@ Windows 10 or newer, macOS 13 (Ventura) or newer, or 64-bit Linux. Building from
 - **Backups (preview):** incremental copies of records and attachments, kept on your computer. Each backup saves only what changed since the last one and becomes a restore point. Restoring from a restore point arrives in the next release.
 - **Sample data mode:** click "Try with sample data" to explore a fictional company's workspace (Cedar & Pine Goods) in an isolated database, no Airtable account required.
 
+## How it spots a sync nobody wrote down
+
+Airtable records some syncs in a base's schema, and the app draws those as confirmed. It also catches the ones that were never recorded. When two bases each have a table with the same name, it compares their fields: how many field names they share (weighted 60%) and how many of those shared fields have the same type (weighted 40%). A score of 70% or more is drawn as a suspected sync, and 90% or more as confirmed. Both thresholds can be changed in Settings.
+
+![Two Contacts tables from different sample bases share 4 of their 6 field names, all 4 with matching types, which scores 80% and is drawn as a suspected sync](docs/sync-detection.svg)
+
 ## Screenshots
 
 All screenshots use the built-in sample data.
+
+**Workspace map.** Every base as a node, with confirmed and suspected syncs drawn between them.
+
+![Workspace map of the fictional Cedar & Pine Goods sample workspace, with bases as nodes and confirmed and suspected syncs as edges](docs/screenshots/map.webp)
 
 **Base detail.** Select a base to frame it with everything it connects to, and see its tables and field counts.
 
