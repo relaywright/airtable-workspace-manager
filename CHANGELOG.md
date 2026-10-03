@@ -23,6 +23,10 @@ project uses semantic versioning once a stable release ships.
   the peer conflict, so lint, tests and the build all failed in CI. `@eslint/js` is back on 9,
   and Dependabot now upgrades `eslint` and `@eslint/*` together in one pull request.
 
+### Changed
+
+- Published as relaywright: license holder, package author and the README download link.
+
 ## [0.1.0] - 2026-10-01
 
 First public release of Airtable Workspace Manager: a free, local-first desktop app for
