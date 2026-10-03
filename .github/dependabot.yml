@@ -9,7 +9,7 @@ updates:
       eslint:
         patterns:
           - eslint
-          - "@eslint/*"
+          - '@eslint/*'
       npm-minor-patch:
         update-types:
           - minor
