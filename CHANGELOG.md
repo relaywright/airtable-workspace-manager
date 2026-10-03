@@ -17,6 +17,12 @@ project uses semantic versioning once a stable release ships.
   cursor whenever the interface changes. It runs the app on a throwaway profile, so saved
   settings and tokens are never touched. Adds `playwright-core` as a dev dependency.
 
+### Fixed
+
+- `npm ci` failed on main after `@eslint/js` moved to 10 while `eslint` stayed on 9: npm refused
+  the peer conflict, so lint, tests and the build all failed in CI. `@eslint/js` is back on 9,
+  and Dependabot now upgrades `eslint` and `@eslint/*` together in one pull request.
+
 ## [0.1.0] - 2026-10-01
 
 First public release of Airtable Workspace Manager: a free, local-first desktop app for

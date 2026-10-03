@@ -5,6 +5,11 @@ updates:
     schedule:
       interval: weekly
     groups:
+      # eslint and @eslint/js must move together; a lone @eslint/js major breaks npm ci.
+      eslint:
+        patterns:
+          - eslint
+          - "@eslint/*"
       npm-minor-patch:
         update-types:
           - minor
