@@ -37,4 +37,6 @@ Scheduled, incremental backups of every record and attachment, with a preview-be
 
 ## Known open issues
 
+- ESLint 10 is on hold: `eslint-plugin-react` 7.37.5 (latest as of 2026-10-03) only accepts eslint up to 9, so `.github/dependabot.yml` ignores major `eslint` and `@eslint/*` updates. When the plugin supports ESLint 10, remove that ignore block and upgrade `eslint`, `@eslint/js` and the React plugins together.
+- Dependabot PRs #8 (electron-store 8 → 11), #9 (concurrently 8 → 10) and #13 (wait-on 7 → 9) were tested against a broken main and need `@dependabot rebase` before their CI means anything. electron-store 11 is three majors ahead and needs a real review before merging.
 - Edits made during a running refresh share its long-lived transaction and are discarded if the refresh rolls back (`electron/services/refresh.js`, `database.js` batch). Scheduled for Plan 1B: fetch first, then write results in one synchronous transaction.
