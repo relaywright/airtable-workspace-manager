@@ -26,6 +26,9 @@ project uses semantic versioning once a stable release ships.
 ### Changed
 
 - Published as relaywright: license holder, package author and the README download link.
+- `npm run release:snapshot` always commits as relaywright with Git hooks switched off, checks
+  the finished commit's author and committer before going on, and stops if a Git identity
+  variable names anyone else.
 
 ## [0.1.0] - 2026-10-01
 
